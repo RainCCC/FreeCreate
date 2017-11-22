@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseAppTheme" parent="AppTheme">
+        <!-- true: status栏会有一层阴影；false: status栏没有阴影;当该项为true时，则name="android:windowLightStatusBar"设置无效，永远为白色 -->
+        <item name="android:windowTranslucentStatus">false</item>
+        <!-- 使底部导航栏透明 -->
+        <item name="android:windowTranslucentNavigation">false</item>
+        <!-- 给status栏设置透明颜色 -->
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="BaseWhiteTheme" parent="AppTheme">
+        <!-- true: status栏会有一层阴影；false: status栏没有阴影;当该项为true时，则name="android:windowLightStatusBar"设置无效，永远为白色 -->
+        <item name="android:windowTranslucentStatus">false</item>
+        <!-- 使底部导航栏透明 -->
+        <item name="android:windowTranslucentNavigation">false</item>
+        <!-- 给status栏设置透明颜色 -->
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
+
+</resources>

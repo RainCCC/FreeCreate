@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#56596b</color>
+    <color name="colorPrimaryDark">#f5f4db</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="app_bg_color">#eeeeee</color>
+    <!--全透明-->
+    <color name="transparent">#00000000</color>
+    <!--半透明-->
+    <color name="translucent">#55000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+</resources>
