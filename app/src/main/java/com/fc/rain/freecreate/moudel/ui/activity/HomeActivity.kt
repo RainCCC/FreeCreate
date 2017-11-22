@@ -1,10 +1,12 @@
 package com.fc.rain.freecreate.moudel.ui.activity
 
 import android.os.Bundle
+import android.view.View
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
 import com.fc.rain.freecreate.moudel.contract.HomeContract
 import com.fc.rain.freecreate.moudel.presenter.HomePresenter
+import kotlinx.android.synthetic.main.title_bar.*
 
 /**
  *
@@ -18,6 +20,7 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
     }
 
     override fun initView() {
+        iv_back.visibility = View.GONE
     }
 
     override fun initData() {
