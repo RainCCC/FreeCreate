@@ -14,7 +14,7 @@ class LoadDialogUtils(var context: Context) {
     var loadDialog: Dialog? = null
 
     init {
-        loadDialog = Dialog(context)
+        loadDialog = Dialog(context, R.style.LoadingDialog)
         loadDialog?.setContentView(R.layout.loading_view)
     }
 

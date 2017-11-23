@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include layout="@layout/title_bar" />
+
+    <FrameLayout
+        android:layout_weight="1"
+        android:id="@+id/fl_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -13,6 +20,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -25,6 +33,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_message"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -37,6 +46,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_my"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -49,4 +59,4 @@
             android:textStyle="bold" />
     </RadioGroup>
 
-</RelativeLayout>
+</LinearLayout>

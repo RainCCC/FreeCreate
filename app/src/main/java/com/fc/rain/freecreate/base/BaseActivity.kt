@@ -1,7 +1,15 @@
 package com.fc.rain.freecreate.base
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import com.fc.rain.freecreate.moudel.ui.activity.MainActivity
 import com.fc.rain.freecreate.utils.AppActivityManager
+import com.fc.rain.freecreate.utils.LoadDialogUtils
+import com.hyphenate.EMConnectionListener
+import com.hyphenate.EMError
+import com.hyphenate.chat.EMClient
+import com.hyphenate.util.NetUtils
 import com.zhy.autolayout.AutoLayoutActivity
 
 /**
@@ -12,19 +20,70 @@ import com.zhy.autolayout.AutoLayoutActivity
  */
 abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
 
+    val DEFAULTHXLISTENER = 100
+    val CUSTOMHXLISTENER = 200
+    var mCurEMConnectionListener: EMConnectionListener? = null
+
+    var mContext: Context? = null
+    var loadDialogUtils: LoadDialogUtils? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppActivityManager.getInstance()?.addActivity(this)
-        setContentView(layoutResID)
+        mContext = this
+        setContentView(layoutResID())
 
+        loadDialogUtils = LoadDialogUtils(this)
         initContract()
         initView()
         initData()
         initListener()
+        //注册一个监听连接状态的listener
+        when (openDefaultHXListener()) {
+        //默认的环信监听
+            DEFAULTHXLISTENER -> {
+                mCurEMConnectionListener = DefaultConnectionListener()
+                EMClient.getInstance().addConnectionListener(mCurEMConnectionListener)
+            }
+        //自定义环信监听
+            CUSTOMHXLISTENER -> {
+                mCurEMConnectionListener = mEMConnectionListener()
+                EMClient.getInstance().addConnectionListener(mCurEMConnectionListener)
+            }
+        }
+
     }
+
+    protected inner class DefaultConnectionListener : EMConnectionListener {
+        override fun onConnected() {
+        }
+
+        override fun onDisconnected(errorCode: Int) {
+            runOnUiThread {
+                when (errorCode) {
+                // 显示帐号已经被移除
+                    EMError.USER_REMOVED -> {
+                        startActivity(Intent(this@BaseActivity, MainActivity::class.java))
+                        AppActivityManager.getInstance()?.killAllActivity()
+                    }
+                // 显示帐号在其他设备登录
+                    EMError.USER_LOGIN_ANOTHER_DEVICE -> {
+                        startActivity(Intent(this@BaseActivity, MainActivity::class.java))
+                        AppActivityManager.getInstance()?.killAllActivity()
+                    }
+                }
+                if (NetUtils.hasNetwork(mContext)) {
+                    //连接不到聊天服务器
+                } else {
+                    //当前网络不可用，请检查网络设置
+                }
+            }
+        }
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
+        mCurEMConnectionListener?.let { EMClient.getInstance().removeConnectionListener(it) }
         AppActivityManager.getInstance()?.removeActivity(this)
     }
 
@@ -36,11 +95,22 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
 
     protected abstract fun initListener()
 
-    protected abstract val layoutResID: Int
+    protected abstract fun layoutResID(): Int
+
+    protected abstract fun openDefaultHXListener(): Int
+
+    /**
+     * 重写自定义环信连接状态监听
+     */
+    open fun mEMConnectionListener(): EMConnectionListener? {
+        return null
+    }
 
     override fun showLoading() {
+        loadDialogUtils?.showLoadingDialog()
     }
 
     override fun hideLoading() {
+        loadDialogUtils?.disMissDialog()
     }
 }

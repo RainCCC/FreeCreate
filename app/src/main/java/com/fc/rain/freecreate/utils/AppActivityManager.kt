@@ -64,7 +64,7 @@ class AppActivityManager private constructor() {
     /**
      * 结束指定的Activity
      */
-    private fun killActivity(activity: Activity?) {
+    fun killActivity(activity: Activity?) {
         if (activity != null) {
             mActivityStack!!.remove(activity)
             activity.finish()
@@ -85,7 +85,7 @@ class AppActivityManager private constructor() {
     /**
      * 结束所有Activity
      */
-    private fun killAllActivity() {
+    fun killAllActivity() {
         var i = 0
         val size = mActivityStack!!.size
         while (i < size) {
