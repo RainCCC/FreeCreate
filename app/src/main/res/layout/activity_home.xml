@@ -1,17 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include layout="@layout/title_bar" />
 
-    <com.roughike.bottombar.BottomBar
-        android:id="@+id/bottomBar"
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="@dimen/npx120"
         android:layout_alignParentBottom="true"
-        app:bb_tabXmlResource="@xml/bottombar_tabs"/>
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
 
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_road"
+            android:gravity="center"
+            android:paddingTop="@dimen/npx15"
+            android:text="主页"
+            android:textSize="@dimen/nsp14"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_message"
+            android:gravity="center"
+            android:paddingTop="@dimen/npx15"
+            android:text="消息"
+            android:textSize="@dimen/nsp14"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@mipmap/ic_my"
+            android:gravity="center"
+            android:paddingTop="@dimen/npx15"
+            android:text="我的"
+            android:textSize="@dimen/nsp14"
+            android:textStyle="bold" />
+    </RadioGroup>
 
 </RelativeLayout>
