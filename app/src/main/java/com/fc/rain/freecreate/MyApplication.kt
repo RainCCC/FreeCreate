@@ -16,6 +16,11 @@ import android.content.Context
  */
 
 class MyApplication : Application() {
+
+    companion object {
+        val isDebug = true
+    }
+
     override fun onCreate() {
         super.onCreate()
         initHx()

@@ -1,6 +1,7 @@
 package com.fc.rain.freecreate.moudel.ui.activity
 
 import android.content.Intent
+import android.os.Bundle
 import android.text.TextUtils
 import com.hyphenate.chat.EMClient
 import com.hyphenate.exceptions.HyphenateException
@@ -10,6 +11,7 @@ import com.hyphenate.EMCallBack
 import android.util.Log
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
+import com.fc.rain.freecreate.utils.PreferencesUtil
 import org.jetbrains.anko.custom.async
 
 
@@ -18,9 +20,9 @@ class MainActivity : BaseActivity() {
         return R.layout.activity_main
     }
 
-    override fun initContract() {
-//        userName = SPUtils.getInstance().getString("UserName")
-//        password = SPUtils.getInstance().getString("Password")
+    override fun initContract(savedInstanceState: Bundle?) {
+        userName = PreferencesUtil.getString(this, "UserName")
+        password = PreferencesUtil.getString(this, "Password")
     }
 
     override fun initView() {
@@ -30,9 +32,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initData() {
-        if (!TextUtils.isEmpty(userName)) {
-            login()
-        }
+        login()
     }
 
     override fun initListener() {
@@ -45,12 +45,16 @@ class MainActivity : BaseActivity() {
         return CUSTOMHXLISTENER
     }
 
-    var userName: String = ""
-    var password: String = ""
+    var userName: String? = ""
+    var password: String? = ""
 
     private fun login() {
         userName = et_name.text.toString()
         password = et_password.text.toString()
+        if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)) {
+            toast("username or password can't isEmpty")
+            return
+        }
         try {
             showLoading()
             EMClient.getInstance().login(userName, password, object : EMCallBack {
@@ -61,8 +65,8 @@ class MainActivity : BaseActivity() {
                     Log.d("hx----------", "登录聊天服务器成功！")
                     runOnUiThread {
                         hideLoading()
-//                        SPUtils.getInstance().put("UserName", userName)
-//                        SPUtils.getInstance().put("Password", password)
+                        PreferencesUtil.put(mContext, "UserName", userName)
+                        PreferencesUtil.put(mContext, "Password", password)
                         toast("登录聊天服务器成功！")
                         var intent1 = Intent(this@MainActivity, HomeActivity::class.java)
                         startActivity(intent1)
@@ -91,11 +95,17 @@ class MainActivity : BaseActivity() {
     }
 
     private fun register() {
+        userName = et_name.text.toString()
+        password = et_password.text.toString()
+        if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)) {
+            toast("username or password can't isEmpty")
+            return
+        }
         showLoading()
         async {
             try {
                 //注册失败会抛出HyphenateException
-                EMClient.getInstance().createAccount(et_name.text.toString(), et_password.text.toString())//同步方法
+                EMClient.getInstance().createAccount(userName, password)//同步方法
                 runOnUiThread {
                     hideLoading()
                     toast("注册成功")

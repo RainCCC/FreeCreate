@@ -1,5 +1,6 @@
 package com.fc.rain.freecreate.moudel.ui.activity
 
+import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
 import com.fc.rain.freecreate.R
@@ -9,8 +10,10 @@ import com.fc.rain.freecreate.moudel.presenter.HomePresenter
 import com.fc.rain.freecreate.moudel.ui.fragment.HomeFragment
 import com.fc.rain.freecreate.moudel.ui.fragment.MessageFragment
 import com.fc.rain.freecreate.moudel.ui.fragment.MyFragment
+import com.fc.rain.freecreate.utils.FragmentUtils
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.title_bar.*
+import org.jetbrains.anko.toast
 
 /**
  *
@@ -19,6 +22,10 @@ import kotlinx.android.synthetic.main.title_bar.*
  * Created by Rain on 2017/11/21.
  */
 class HomeActivity : BaseActivity(), HomeContract.IHomeView {
+
+    var homeFragment: HomeFragment? = null
+    var messageFragment: MessageFragment? = null
+    var myFragment: MyFragment? = null
     override fun layoutResID(): Int {
         return R.layout.activity_home
     }
@@ -29,35 +36,49 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
 
     var fragments: MutableList<Fragment>? = arrayListOf()
 
-    override fun initContract() {
+    override fun initContract(savedInstanceState: Bundle?) {
         HomePresenter(this)
+        if (savedInstanceState == null) {
+            homeFragment = HomeFragment()
+            messageFragment = MessageFragment()
+            myFragment = MyFragment()
+            FragmentUtils.add(supportFragmentManager, R.id.fl_fragment, homeFragment, "HomeFragment")
+            FragmentUtils.add(supportFragmentManager, R.id.fl_fragment, messageFragment, "MessageFragment")
+            FragmentUtils.add(supportFragmentManager, R.id.fl_fragment, myFragment, "MyFragment")
+        } else {
+            homeFragment = FragmentUtils.findFragmentByTag(supportFragmentManager, "HomeFragment") as HomeFragment
+            messageFragment = FragmentUtils.findFragmentByTag(supportFragmentManager, "MessageFragment") as MessageFragment
+            myFragment = FragmentUtils.findFragmentByTag(supportFragmentManager, "MyFragment") as MyFragment
+        }
+
+        fragments?.clear()
+        homeFragment?.let { fragments?.add(it) }
+        messageFragment?.let { fragments?.add(it) }
+        myFragment?.let { fragments?.add(it) }
+        fragments?.let { FragmentUtils.hideAll(supportFragmentManager, it) }
+        fragments?.get(0)?.let { FragmentUtils.show(supportFragmentManager, it) }
+        toast(supportFragmentManager.fragments.size.toString())
     }
 
     override fun initView() {
+        supportFragmentManager
         iv_back.visibility = View.GONE
-        fragments?.add(HomeFragment())
-        fragments?.add(MessageFragment())
-        fragments?.add(MyFragment())
-//        fragments?.forEach { FragmentUtils.add(supportFragmentManager, it, R.id.fl_fragment, true) }
-//        fragments?.get(0)?.let { FragmentUtils.show(it) }
+
     }
 
     override fun initData() {
     }
 
     override fun initListener() {
-//        btn_home.setOnClickListener {
-//            fragments?.forEach { FragmentUtils.hide(it) }
-//            fragments?.get(0)?.let { FragmentUtils.show(it) }
-//        }
-//        btn_message.setOnClickListener {
-//            fragments?.forEach { FragmentUtils.hide(it) }
-//            fragments?.get(1)?.let { FragmentUtils.show(it) }
-//        }
-//        btn_my.setOnClickListener {
-//            fragments?.forEach { FragmentUtils.hide(it) }
-//            fragments?.get(2)?.let { FragmentUtils.show(it) }
-//        }
+        btn_home.setOnClickListener {
+            fragments?.get(0)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) }
+        }
+        btn_message.setOnClickListener {
+            fragments?.get(1)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) }
+        }
+        btn_my.setOnClickListener {
+            fragments?.get(2)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) }
+        }
     }
 
 

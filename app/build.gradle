@@ -34,6 +34,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:design:26.1.0'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.hyphenate:hyphenate-sdk:3.3.0'//环信
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'//下拉刷新
     compile 'com.yanzhenjie:permission:1.1.2'//权限管理

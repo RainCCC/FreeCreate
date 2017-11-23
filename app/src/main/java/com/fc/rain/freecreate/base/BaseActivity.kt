@@ -33,7 +33,7 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
         setContentView(layoutResID())
 
         loadDialogUtils = LoadDialogUtils(this)
-        initContract()
+        initContract(savedInstanceState)
         initView()
         initData()
         initListener()
@@ -87,7 +87,7 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
         AppActivityManager.getInstance()?.removeActivity(this)
     }
 
-    protected abstract fun initContract()
+    protected abstract fun initContract(savedInstanceState: Bundle?)
 
     protected abstract fun initView()
 
