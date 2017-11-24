@@ -2,6 +2,8 @@ package com.fc.rain.freecreate.moudel.presenter
 
 import com.fc.rain.freecreate.moudel.contract.HomeContract
 
+
+
 /**
  *
  * Describe #
@@ -9,6 +11,9 @@ import com.fc.rain.freecreate.moudel.contract.HomeContract
  * Created by Rain on 2017/11/22.
  */
 class HomePresenter(var mView: HomeContract.IHomeView?) : HomeContract.IHomePresenter {
+    override fun refreshData() {
+    }
+
     init {
         mView?.setPresenter(this)
     }
@@ -18,6 +23,7 @@ class HomePresenter(var mView: HomeContract.IHomeView?) : HomeContract.IHomePres
     }
 
     override fun start() {
+
     }
 
 }

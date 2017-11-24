@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">FreeCreate</string>
+    <string name="permission_title_dialog">权限申请</string>
+    <string name="permission_message_failed">我们需要的一些必要权限被禁止，请授权给我们。</string>
+    <string name="permission_ok">好的</string>
+    <string name="permission_no">不给你</string>
+
+    <string name="hint_add_friend">请输入你要添加的用户名</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="delete_care">删除提示</string>
+    <string name="delete_care_friend">是否删除该好友</string>
+    <string name="delete_success">删除成功</string>
+    <string name="delete_fail">删除失败</string>
+    <string name="add_success">添加成功</string>
+    <string name="agree_request_friend">你们已成为好友</string>
+    <string name="disagree_request_friend">不理你</string>
+    <string name="agree">同意</string>
+    <string name="disagree">拒绝</string>
+    <string name="request_add_friend">请求加为好友</string>
+    <string name="request_friend">好友申请</string>
+    <string name="already_agree_your_request">已同意您的申请</string>
+    <string name="already_disagree_your_request">已拒绝您的申请</string>
+    <string name="delete">已拒绝您的申请</string>
+    <string name="already_delete_friend">已被删除</string>
+    <string name="already_add_friend">成为了您的好友</string>
+    <string name="add_friend">添加好友</string>
+    <string name="exit_login">退出登录</string>
+    <string name="already_user_deleted">帐号已经被移除</string>
+    <string name="already_user_login_in_other">帐号在其他设备登录</string>
+    <string name="connection_no_network">当前网络不可用，请检查网络设置</string>
+    <string name="connection_chat_fail">连接不到聊天服务器</string>
 </resources>

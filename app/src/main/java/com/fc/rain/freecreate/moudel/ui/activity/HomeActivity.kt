@@ -57,7 +57,6 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
         myFragment?.let { fragments?.add(it) }
         fragments?.let { FragmentUtils.hideAll(supportFragmentManager, it) }
         fragments?.get(0)?.let { FragmentUtils.show(supportFragmentManager, it) }
-        toast(supportFragmentManager.fragments.size.toString())
     }
 
     override fun initView() {

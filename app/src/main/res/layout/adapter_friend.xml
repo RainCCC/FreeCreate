@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_friend"
+        android:layout_margin="@dimen/npx30"
+        style="@style/tv_1e1e1e_16sp"
+        android:layout_width="match_parent"
+        android:text="Rian"/>
+
+    <View style="@style/Cut_off_line" />
+
+
+</LinearLayout>

@@ -3,14 +3,17 @@ package com.fc.rain.freecreate.base
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.moudel.ui.activity.MainActivity
 import com.fc.rain.freecreate.utils.AppActivityManager
 import com.fc.rain.freecreate.utils.LoadDialogUtils
+import com.fc.rain.freecreate.utils.SPUtils
 import com.hyphenate.EMConnectionListener
 import com.hyphenate.EMError
 import com.hyphenate.chat.EMClient
 import com.hyphenate.util.NetUtils
 import com.zhy.autolayout.AutoLayoutActivity
+import org.jetbrains.anko.toast
 
 /**
  *
@@ -62,19 +65,29 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
                 when (errorCode) {
                 // 显示帐号已经被移除
                     EMError.USER_REMOVED -> {
+                        toast(getString(R.string.already_user_deleted))
+                        SPUtils.clear(this@BaseActivity)
                         startActivity(Intent(this@BaseActivity, MainActivity::class.java))
                         AppActivityManager.getInstance()?.killAllActivity()
                     }
                 // 显示帐号在其他设备登录
                     EMError.USER_LOGIN_ANOTHER_DEVICE -> {
+                        toast(getString(R.string.already_user_login_in_other))
+                        SPUtils.clear(this@BaseActivity)
                         startActivity(Intent(this@BaseActivity, MainActivity::class.java))
                         AppActivityManager.getInstance()?.killAllActivity()
                     }
                 }
                 if (NetUtils.hasNetwork(mContext)) {
                     //连接不到聊天服务器
+//                    runOnUiThread {
+//                        toast(getString(R.string.connection_chat_fail))
+//                    }
                 } else {
                     //当前网络不可用，请检查网络设置
+//                    runOnUiThread {
+//                        toast(getString(R.string.connection_no_network))
+//                    }
                 }
             }
         }

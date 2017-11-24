@@ -34,4 +34,128 @@
         <!--<item name="android:backgroundDimEnabled">true</item>-->
     </style>
 
+    <!-- 分割线 -->
+    <style name="Cut_off_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/color_e5e5e5</item>
+    </style>
+
+    <style name="Cut_off_line_F4F4F4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/app_bg_color</item>
+    </style>
+
+    <style name="Cut_off_line_short">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_marginLeft">30px</item>
+        <item name="android:layout_marginRight">30px</item>
+        <item name="android:background">@color/color_e5e5e5</item>
+    </style>
+
+
+    <!--TextView-->
+    <style name="tv_white_16sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="tv_666666_12sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_666666</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="tv_1e1e1e_16sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_1e1e1e</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="tv_1e1e1e_200_16sp">
+        <item name="android:minWidth">@dimen/npx200</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_1e1e1e</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="tv_888888_12sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_888888</item>
+        <item name="android:textSize">12sp</item>
+
+    </style>
+
+    <style name="tv_F43530_16sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_F43530</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="tv_17B058_12sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_text_17B058</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="tv_CCCCCC_12sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/cccccc</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="et_hint_cccccc_16sp">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/cccccc</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_text_1e1e1e</item>
+    </style>
+
+    <style name="et_hint_cccccc_right_16sp">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/cccccc</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_text_1e1e1e</item>
+    </style>
+
+    <style name="tv_submit_17B058">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/npx30</item>
+        <item name="android:layout_marginRight">@dimen/npx30</item>
+        <item name="android:layout_marginTop">@dimen/npx13</item>
+        <item name="android:layout_marginBottom">@dimen/npx13</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/npx88</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/nsp17</item>
+    </style>
+
+    <style name="ll_edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/npx30</item>
+    </style>
+
+    <style name="tv_999999_9sp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/color_999999</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
 </resources>

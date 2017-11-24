@@ -16,6 +16,6 @@ class HomeContract {
     }
 
     interface IHomePresenter : IBasePresenter {
-
+        fun refreshData()
     }
 }

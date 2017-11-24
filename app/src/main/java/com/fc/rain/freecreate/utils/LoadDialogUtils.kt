@@ -16,6 +16,8 @@ class LoadDialogUtils(var context: Context) {
     init {
         loadDialog = Dialog(context, R.style.LoadingDialog)
         loadDialog?.setContentView(R.layout.loading_view)
+        loadDialog?.setCanceledOnTouchOutside(false)
+        loadDialog?.setCancelable(false)
     }
 
     fun showLoadingDialog() {

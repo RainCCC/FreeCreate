@@ -1,10 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/my_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="@dimen/npx100"
+        android:layout_height="@dimen/npx100"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/npx30"
+        android:src="@mipmap/ic_user" />
+
     <TextView
-        android:gravity="center"
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_user"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/npx20"
+        android:text="user"
+        android:textSize="@dimen/nsp16" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的"/>
+        android:layout_height="0px"
+        android:layout_marginTop="@dimen/npx80"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/ll_edit"
+            android:layout_below="@id/tv_name"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tv_1e1e1e_200_16sp"
+                android:text="添加好友" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_add_friend" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ll_edit"
+            android:layout_below="@id/tv_name"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tv_1e1e1e_200_16sp"
+                android:text="备注" />
+
+            <EditText
+                android:id="@+id/et_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入添加的理由" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/ll_edit"
+            android:layout_below="@id/tv_name"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_add"
+                style="@style/tv_1e1e1e_16sp"
+                android:layout_width="match_parent"
+                android:text="@string/add_friend" />
+
+            <Button
+                android:layout_marginTop="@dimen/npx30"
+                android:id="@+id/btn_exit"
+                style="@style/tv_1e1e1e_16sp"
+                android:layout_width="match_parent"
+                android:text="@string/exit_login" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>
