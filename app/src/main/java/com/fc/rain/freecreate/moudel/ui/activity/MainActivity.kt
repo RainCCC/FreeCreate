@@ -1,5 +1,7 @@
 package com.fc.rain.freecreate.moudel.ui.activity
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -19,8 +21,9 @@ import com.yanzhenjie.permission.Permission
 import com.yanzhenjie.permission.PermissionListener
 import org.jetbrains.anko.custom.async
 
-
 class MainActivity : BaseActivity() {
+
+    var isLogin: Boolean = true
     override fun layoutResID(): Int {
         return R.layout.activity_main
     }
@@ -34,6 +37,9 @@ class MainActivity : BaseActivity() {
         var REQUEST_CODE_SETTING = 200
     }
 
+    /**
+     * 申请权限
+     */
     private fun initPermission() {
         // 在Activity：
         AndPermission.with(this)
@@ -87,7 +93,6 @@ class MainActivity : BaseActivity() {
         password = SPUtils.get(this, PASSWORD, "").toString()
         et_name.setText(userName)
         et_password.setText(password)
-
     }
 
     override fun initData() {
@@ -95,9 +100,48 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initListener() {
-        btn_login.setOnClickListener { login() }
-        btn_register.setOnClickListener { register() }
-        btn_exit.setOnClickListener { exitLogin() }
+        btn_login.setOnClickListener {
+            if (isLogin) {
+                login()
+            } else {
+                register()
+            }
+        }
+        tv_register.setOnClickListener { openAnimation() }
+    }
+
+    /**
+     * 切换动画
+     */
+    private fun openAnimation() {
+
+        var anim = ObjectAnimator.ofFloat(card_view, "rotationY", 0f, 360f)
+                .setDuration(1000)
+        anim.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationRepeat(animation: Animator?) {
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                if (isLogin) {
+                    isLogin = false
+                    tv_title.text = getString(R.string.register_en)
+                    tv_register.text = getString(R.string.login)
+                    btn_login.text = getString(R.string.register)
+                } else {
+                    isLogin = true
+                    tv_title.text = getString(R.string.login_en)
+                    tv_register.text = getString(R.string.register)
+                    btn_login.text = getString(R.string.login)
+                }
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+        })
+        anim.start()
     }
 
     override fun openDefaultHXListener(): Int {
@@ -107,6 +151,9 @@ class MainActivity : BaseActivity() {
     var userName: String? = ""
     var password: String? = ""
 
+    /**
+     * 登录
+     */
     private fun login() {
         userName = et_name.text.toString()
         password = et_password.text.toString()
@@ -153,6 +200,9 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    /**
+     * 注册
+     */
     private fun register() {
         userName = et_name.text.toString()
         password = et_password.text.toString()
@@ -176,33 +226,5 @@ class MainActivity : BaseActivity() {
                 }
             }
         }
-    }
-
-    private fun exitLogin() {
-        showLoading()
-        EMClient.getInstance().logout(true, object : EMCallBack {
-            override fun onSuccess() {
-                // TODO Auto-generated method stub
-                runOnUiThread {
-                    hideLoading()
-                    SPUtils.clear(this@MainActivity)
-                    toast("退出登录成功")
-                    finish()
-                }
-            }
-
-            override fun onProgress(progress: Int, status: String) {
-                // TODO Auto-generated method stub
-
-            }
-
-            override fun onError(code: Int, message: String) {
-                // TODO Auto-generated method stub
-                runOnUiThread {
-                    hideLoading()
-                    toast("退出登录失败")
-                }
-            }
-        })
     }
 }

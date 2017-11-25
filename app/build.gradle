@@ -35,9 +35,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:design:26.1.0'
     compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.hyphenate:hyphenate-sdk:3.3.0'//环信
-    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'//下拉刷新
-    compile 'com.yanzhenjie:permission:1.1.2'//权限管理
-    compile 'com.lzy.net:okgo:3.0.4'//网络请求
-    compile 'com.zhy:autolayout:1.4.5' // autolayout
+    compile 'com.hyphenate:hyphenate-sdk:3.3.0'
+    //环信
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    //下拉刷新
+    compile 'com.yanzhenjie:permission:1.1.2'
+    //权限管理
+    compile 'com.lzy.net:okgo:3.0.4'
+    //网络请求
+    compile 'com.zhy:autolayout:1.4.5'
+    // autolayout
+    implementation 'com.android.support:cardview-v7:27.0.1'
 }

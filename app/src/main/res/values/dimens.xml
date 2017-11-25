@@ -802,4 +802,5 @@
     <dimen name="npx766">766px</dimen>
     <dimen name="npx767">767px</dimen>
     <dimen name="npx768">768px</dimen>
+    <dimen name="npx800">800px</dimen>
 </resources>

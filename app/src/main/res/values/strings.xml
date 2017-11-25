@@ -30,4 +30,11 @@
     <string name="already_user_login_in_other">帐号在其他设备登录</string>
     <string name="connection_no_network">当前网络不可用，请检查网络设置</string>
     <string name="connection_chat_fail">连接不到聊天服务器</string>
+    <string name="user_name">用户名</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+    <string name="login_en">login</string>
+    <string name="register_en">register</string>
+    <string name="register">注册</string>
+    <string name="forget_password">忘记密码？</string>
 </resources>

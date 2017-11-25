@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#56596b</color>
-    <color name="colorPrimaryDark">#f5f4db</color>
+    <!--<color name="colorPrimary">#56596b</color>-->
+    <color name="colorPrimary">#545353</color>
+    <color name="colorPrimaryDark">#bcf1b0</color>
     <color name="colorAccent">#FF4081</color>
     <color name="app_bg_color">#eeeeee</color>
     <!--全透明-->
@@ -16,7 +17,13 @@
     <color name="color_text_1e1e1e">#1e1e1e</color>
     <color name="cccccc">#cccccc</color>
     <color name="color_text_17B058">#17b058</color>
+    <color name="color_text_a1a139">#a1a139</color>
     <color name="color_text_F43530">#f43530</color>
     <color name="color_text_888888">#888888</color>
     <color name="color_666666">#666666</color>
+    <color name="color_F1FBFA_white">#F1FBFA</color>
+    <color name="color_806440">#806440</color>
+    <color name="color_2d2e32">#2d2e32</color>
+    <color name="color_2196f3">#2196f3</color>
+    <color name="color_1D328D">#1D328D</color>
 </resources>
