@@ -1,14 +1,15 @@
-package com.fc.rain.freecreate.moudel.ui.fragment
+package com.fc.rain.freecreate.moduel.ui.fragment
 
 import android.content.Intent
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import cn.bmob.v3.BmobUser
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseFragment
 import com.fc.rain.freecreate.base.Constant
-import com.fc.rain.freecreate.moudel.ui.activity.MainActivity
+import com.fc.rain.freecreate.moduel.ui.activity.LoginActivity
 import com.fc.rain.freecreate.utils.SPUtils
 import com.hyphenate.EMCallBack
 import com.hyphenate.chat.EMClient
@@ -64,8 +65,10 @@ class MyFragment : BaseFragment() {
                     mContext.runOnUiThread {
                         hideLoading()
                         toast("退出登录成功")
+                        //bmob退出登录
+                        BmobUser.logOut()
                         SPUtils.clear(mContext)
-                        startActivity(Intent(mContext, MainActivity::class.java))
+                        startActivity(Intent(mContext, LoginActivity::class.java))
                         activity.finish()
                     }
                 }

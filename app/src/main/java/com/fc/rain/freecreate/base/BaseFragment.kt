@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.fc.rain.freecreate.utils.LoadDialogUtils
+import org.jetbrains.anko.support.v4.toast
 
 /**
  *
@@ -85,5 +86,9 @@ abstract class BaseFragment : Fragment(), IBaseView {
 
     protected fun <T : View> findViewById(resId: Int): View? {
         return rootView?.findViewById(resId)
+    }
+
+    override fun toastMessage(message: String) {
+        toast(message)
     }
 }

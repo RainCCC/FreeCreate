@@ -32,9 +32,23 @@
     <string name="connection_chat_fail">连接不到聊天服务器</string>
     <string name="user_name">用户名</string>
     <string name="password">密码</string>
+    <string name="hint_user_name">请输入用户名</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="hint_password_again">请再次输入密码</string>
+    <string name="hint_email">请输入email地址</string>
     <string name="login">登录</string>
     <string name="login_en">login</string>
     <string name="register_en">register</string>
     <string name="register">注册</string>
     <string name="forget_password">忘记密码？</string>
+    <string name="check_email">验证邮箱</string>
+    <string name="check_email_success">请输入正确的邮箱地址</string>
+    <string name="login_success">登录成功</string>
+    <string name="register_success">注册成功</string>
+    <string name="check_password">两次输入的密码不一致，请重新输入</string>
+    <string name="username_or_password_no_empty">用户名或密码不能为空</string>
+    <string name="login_chat_success">登录聊天服务器成功！</string>
+    <string name="login_chat_fail">登录聊天服务器失败: </string>
+    <string name="register_fail">注册失败: </string>
+    <string name="login_fail">登录失败: </string>
 </resources>

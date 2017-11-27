@@ -9,4 +9,5 @@ package com.fc.rain.freecreate.base
 interface IBaseView {
     fun showLoading()
     fun hideLoading()
+    fun toastMessage(message: String)
 }

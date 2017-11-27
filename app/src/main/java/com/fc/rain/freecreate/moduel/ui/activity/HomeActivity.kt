@@ -1,19 +1,18 @@
-package com.fc.rain.freecreate.moudel.ui.activity
+package com.fc.rain.freecreate.moduel.ui.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
-import com.fc.rain.freecreate.moudel.contract.HomeContract
-import com.fc.rain.freecreate.moudel.presenter.HomePresenter
-import com.fc.rain.freecreate.moudel.ui.fragment.HomeFragment
-import com.fc.rain.freecreate.moudel.ui.fragment.MessageFragment
-import com.fc.rain.freecreate.moudel.ui.fragment.MyFragment
+import com.fc.rain.freecreate.moduel.contract.HomeContract
+import com.fc.rain.freecreate.moduel.presenter.HomePresenter
+import com.fc.rain.freecreate.moduel.ui.fragment.HomeFragment
+import com.fc.rain.freecreate.moduel.ui.fragment.MessageFragment
+import com.fc.rain.freecreate.moduel.ui.fragment.MyFragment
 import com.fc.rain.freecreate.utils.FragmentUtils
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.title_bar.*
-import org.jetbrains.anko.toast
 
 /**
  *

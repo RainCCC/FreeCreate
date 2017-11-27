@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fc.rain.freecreate.moudel.ui.activity.MyActivity">
+    tools:context="com.fc.rain.freecreate.moduel.ui.activity.MyActivity">
 
 </android.support.constraint.ConstraintLayout>

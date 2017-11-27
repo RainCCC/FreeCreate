@@ -1,4 +1,4 @@
-package com.fc.rain.freecreate.moudel.ui.fragment
+package com.fc.rain.freecreate.moduel.ui.fragment
 
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseFragment

@@ -1,6 +1,6 @@
-package com.fc.rain.freecreate.moudel.presenter
+package com.fc.rain.freecreate.moduel.presenter
 
-import com.fc.rain.freecreate.moudel.contract.HomeContract
+import com.fc.rain.freecreate.moduel.contract.HomeContract
 
 
 

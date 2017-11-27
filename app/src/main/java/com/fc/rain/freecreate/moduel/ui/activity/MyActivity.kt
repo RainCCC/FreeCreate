@@ -1,4 +1,4 @@
-package com.fc.rain.freecreate.moudel.ui.activity
+package com.fc.rain.freecreate.moduel.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

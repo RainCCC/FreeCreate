@@ -21,6 +21,14 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <!--Bmob-->
+    <!--允许联网 -->
+    <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+    <!--获取wifi网络状态的信息 -->
+    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <!--获取sd卡写的权限，用于文件上传和下载-->
+    <!--允许读取手机状态 用于创建BmobInstallation-->
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -33,10 +41,10 @@
         <!-- AutoLayout 配置 -->
         <meta-data
             android:name="design_width"
-            android:value="768"/>
+            android:value="768" />
         <meta-data
             android:name="design_height"
-            android:value="1280"/>
+            android:value="1280" />
 
         <!-- 设置环信应用的AppKey -->
         <meta-data
@@ -64,15 +72,15 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".moudel.ui.activity.MainActivity">
+        <activity android:name=".moduel.ui.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".moudel.ui.activity.HomeActivity" />
-        <activity android:name=".moudel.ui.activity.MyActivity"></activity>
+        <activity android:name=".moduel.ui.activity.HomeActivity" />
+        <activity android:name=".moduel.ui.activity.MyActivity" />
     </application>
 
 </manifest>

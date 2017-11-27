@@ -3,8 +3,9 @@ package com.fc.rain.freecreate.base
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import cn.bmob.v3.BmobUser
 import com.fc.rain.freecreate.R
-import com.fc.rain.freecreate.moudel.ui.activity.MainActivity
+import com.fc.rain.freecreate.moduel.ui.activity.LoginActivity
 import com.fc.rain.freecreate.utils.AppActivityManager
 import com.fc.rain.freecreate.utils.LoadDialogUtils
 import com.fc.rain.freecreate.utils.SPUtils
@@ -67,14 +68,19 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
                     EMError.USER_REMOVED -> {
                         toast(getString(R.string.already_user_deleted))
                         SPUtils.clear(this@BaseActivity)
-                        startActivity(Intent(this@BaseActivity, MainActivity::class.java))
+                        //bmob退出登录
+//                        BmobUser.getCurrentUser().delete()
+                        BmobUser.logOut()
+                        startActivity(Intent(this@BaseActivity, LoginActivity::class.java))
                         AppActivityManager.getInstance()?.killAllActivity()
                     }
                 // 显示帐号在其他设备登录
                     EMError.USER_LOGIN_ANOTHER_DEVICE -> {
                         toast(getString(R.string.already_user_login_in_other))
                         SPUtils.clear(this@BaseActivity)
-                        startActivity(Intent(this@BaseActivity, MainActivity::class.java))
+                        //bmob退出登录
+                        BmobUser.logOut()
+                        startActivity(Intent(this@BaseActivity, LoginActivity::class.java))
                         AppActivityManager.getInstance()?.killAllActivity()
                     }
                 }
@@ -125,5 +131,9 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
 
     override fun hideLoading() {
         loadDialogUtils?.disMissDialog()
+    }
+
+    override fun toastMessage(message: String) {
+        toast(message)
     }
 }
