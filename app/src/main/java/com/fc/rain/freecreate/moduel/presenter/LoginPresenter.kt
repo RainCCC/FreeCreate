@@ -17,7 +17,7 @@ import com.fc.rain.freecreate.utils.RegularUtils
  */
 class LoginPresenter(var mContext: Activity, var mView: LoginContract.ILoginView?) : LoginContract.ILoginPresenter {
 
-    var mModel: LoginContract.ILoginModel? = null
+    var mModel: LoginModel? = null
 
     init {
         mView?.setPresenter(this)
@@ -41,19 +41,24 @@ class LoginPresenter(var mContext: Activity, var mView: LoginContract.ILoginView
         mModel?.registerToHx(userName, againPassword, emailAddress)
     }
 
-    override fun registerFail(string: String) {
-        mView?.hideLoading()
-        mView?.toastMessage(mContext.getString(R.string.register_fail) + string)
-    }
-
-    override fun registerToBmobSuccess(userName: String?, password: String?) {
+    override fun registerBmobSuccess(userName: String?, password: String?, emailAddress: String?) {
         mView?.hideLoading()
         mView?.toastMessage(mContext.getString(R.string.register_success))
         mView?.registerSuccess()
     }
 
-    override fun registerToHxSuccess(userName: String?, password: String?, emailAddress: String?) {
+    override fun registerBmobFail(message: String) {
+        mView?.hideLoading()
+        mView?.toastMessage(mContext.getString(R.string.register_fail) + message)
+    }
+
+    override fun registerHxSuccess(userName: String?, password: String?, emailAddress: String?) {
         mModel?.registerToBmob(userName, password, emailAddress)
+    }
+
+    override fun registerHxFail(message: String) {
+        mView?.hideLoading()
+        mView?.toastMessage(mContext.getString(R.string.register_fail) + message)
     }
 
     override fun login(userName: String?, password: String?) {
@@ -66,7 +71,7 @@ class LoginPresenter(var mContext: Activity, var mView: LoginContract.ILoginView
         mModel?.loginToHx(userName, password)
     }
 
-    override fun loginToBmobSuccess(userName: String?, password: String?) {
+    override fun loginBmobSuccess(userName: String?, password: String?) {
         mView?.hideLoading()
         mView?.toastMessage(mContext.getString(R.string.login_success))
         var intent1 = Intent(mContext, HomeActivity::class.java)
@@ -74,13 +79,18 @@ class LoginPresenter(var mContext: Activity, var mView: LoginContract.ILoginView
         mContext.finish()
     }
 
-    override fun loginFail(string: String) {
+    override fun loginBmobFail(message: String) {
         mView?.hideLoading()
-        mView?.toastMessage(mContext.getString(R.string.login_fail) + string)
+        mView?.toastMessage(mContext.getString(R.string.login_fail) + message)
     }
 
-    override fun loginToHxSuccess(userName: String?, password: String?) {
+    override fun loginHxSuccess(userName: String?, password: String?) {
         mModel?.loginToBmob(userName, password)
+    }
+
+    override fun loginHxFail(message: String) {
+        mView?.hideLoading()
+        mView?.toastMessage(mContext.getString(R.string.login_fail) + message)
     }
 
     override fun start() {

@@ -14,21 +14,8 @@ class LoginContract {
         fun registerSuccess()
     }
 
-    interface ILoginPresenter : IBasePresenter {
+    interface ILoginPresenter : IBasePresenter, ModelContractCallBack.ILoginHxCallBack {
         fun login(userName: String?, password: String?)
         fun register(userName: String?, password: String?, againPassword: String?, emailAddress: String?)
-        fun registerToBmobSuccess(userName: String?, password: String?)
-        fun registerToHxSuccess(userName: String?, password: String?, emailAddress: String?)
-        fun registerFail(string: String)
-        fun loginToBmobSuccess(userName: String?, password: String?)
-        fun loginFail(string: String)
-        fun loginToHxSuccess(userName: String?, password: String?)
-    }
-
-    interface ILoginModel {
-        fun registerToBmob(userName: String?, password: String?, emailAddress: String?)
-        fun loginToBmob(userName: String?, password: String?)
-        fun registerToHx(userName: String?, password: String?, emailAddress: String?)
-        fun loginToHx(userName: String?, password: String?)
     }
 }
