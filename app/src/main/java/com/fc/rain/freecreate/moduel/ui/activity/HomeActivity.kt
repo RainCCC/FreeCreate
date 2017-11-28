@@ -46,6 +46,7 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
             FragmentUtils.add(supportFragmentManager, R.id.fl_fragment, messageFragment, "MessageFragment")
             FragmentUtils.add(supportFragmentManager, R.id.fl_fragment, myFragment, "MyFragment")
         } else {
+            toastMessage("ssssfafd")
             homeFragment = FragmentUtils.findFragmentByTag(supportFragmentManager, "HomeFragment") as HomeFragment
             messageFragment = FragmentUtils.findFragmentByTag(supportFragmentManager, "MessageFragment") as MessageFragment
             myFragment = FragmentUtils.findFragmentByTag(supportFragmentManager, "MyFragment") as MyFragment

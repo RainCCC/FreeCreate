@@ -2,6 +2,7 @@ package com.fc.rain.freecreate.base
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import cn.bmob.v3.BmobUser
 import com.fc.rain.freecreate.R
@@ -32,6 +33,7 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
     var loadDialogUtils: LoadDialogUtils? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         AppActivityManager.getInstance()?.addActivity(this)
         mContext = this
         setContentView(layoutResID())
