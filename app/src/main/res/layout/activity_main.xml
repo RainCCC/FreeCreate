@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/white"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="@string/app_name" />
@@ -43,12 +43,13 @@
                     android:paddingRight="@dimen/npx60">
 
                     <TextView
+                        android:textSize="@dimen/nsp20"
                         android:id="@+id/tv_title"
                         style="@style/tv_white_16sp"
                         android:layout_marginTop="@dimen/npx120"
-                        android:text="Login"
+                        android:text="@string/login_en"
                         android:textColor="@color/color_2d2e32"
-                        android:textStyle="italic|bold" />
+                        android:textStyle="bold" />
 
                     <View
                         style="@style/Cut_off_line"

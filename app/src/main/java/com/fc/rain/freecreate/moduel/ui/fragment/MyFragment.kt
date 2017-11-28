@@ -31,7 +31,7 @@ class MyFragment : BaseFragment() {
         etName = findViewById<EditText>(R.id.et_name) as EditText?
         etReason = findViewById<EditText>(R.id.et_reason) as EditText?
         var tvUser = findViewById<TextView>(R.id.tv_name) as TextView
-        tvUser?.text = SPUtils.get(mContext, Constant.USERNAME, "").toString()
+        tvUser?.text = BmobUser.getObjectByKey("username").toString()
     }
 
     override fun initContract() {

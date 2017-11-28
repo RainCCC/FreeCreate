@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/npx120"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <RadioButton

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<color name="colorPrimary">#56596b</color>-->
-    <color name="colorPrimary">#545353</color>
-    <color name="colorPrimaryDark">#bcf1b0</color>
+    <color name="colorPrimary">#cae1bc</color>
+    <color name="colorPrimaryDark">#0e0e0e</color>
     <color name="colorAccent">#FF4081</color>
     <color name="app_bg_color">#eeeeee</color>
     <!--全透明-->

@@ -37,8 +37,8 @@
     <string name="hint_password_again">请再次输入密码</string>
     <string name="hint_email">请输入email地址</string>
     <string name="login">登录</string>
-    <string name="login_en">login</string>
-    <string name="register_en">register</string>
+    <string name="login_en">Login</string>
+    <string name="register_en">Register</string>
     <string name="register">注册</string>
     <string name="forget_password">忘记密码？</string>
     <string name="check_email">验证邮箱</string>
