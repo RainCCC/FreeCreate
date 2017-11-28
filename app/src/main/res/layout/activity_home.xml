@@ -12,56 +12,59 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <View style="@style/Cut_off_line"/>
+    <View style="@style/Cut_off_line" />
 
     <RadioGroup
-        android:background="@color/white"
         android:id="@+id/rg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/npx120"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/rb_home"
-            android:padding="@dimen/npx15"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@null"
             android:button="@null"
             android:checked="true"
             android:drawableTop="@drawable/home_selector"
             android:gravity="center"
+            android:padding="@dimen/npx15"
             android:text="主页"
-            android:textSize="@dimen/nsp12"
-            android:textColor="@drawable/home_text_selector"/>
+            android:textColor="@drawable/home_text_selector"
+            android:textSize="@dimen/nsp12" />
 
         <RadioButton
             android:id="@+id/rb_message"
-            android:padding="@dimen/npx15"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@null"
             android:button="@null"
             android:checked="false"
             android:drawableTop="@drawable/message_selector"
             android:gravity="center"
+            android:padding="@dimen/npx15"
             android:text="消息"
-            android:textSize="@dimen/nsp12"
-            android:textColor="@drawable/home_text_selector"/>
+            android:textColor="@drawable/home_text_selector"
+            android:textSize="@dimen/nsp12" />
 
         <RadioButton
             android:id="@+id/rb_my"
-            android:padding="@dimen/npx15"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@null"
             android:button="@null"
             android:checked="false"
             android:drawableTop="@drawable/my_selector"
             android:gravity="center"
+            android:padding="@dimen/npx15"
             android:text="我的"
-            android:textSize="@dimen/nsp12"
-            android:textColor="@drawable/home_text_selector"/>
+            android:textColor="@drawable/home_text_selector"
+            android:textSize="@dimen/nsp12" />
     </RadioGroup>
 
     <LinearLayout

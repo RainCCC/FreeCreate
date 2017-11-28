@@ -1,5 +1,6 @@
 package com.fc.rain.freecreate.moduel.ui.activity
 
+import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
@@ -28,9 +29,7 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
         et_register_password.text = null
         et_register_again_password.text = null
         et_register_email.text = null
-        tv_title.text = getString(R.string.login_en)
-        ll_login.visibility = View.VISIBLE
-        ll_register.visibility = View.GONE
+        isLogin = true
         openAnimation()
         //清除本地数据
         BmobUser.logOut()
@@ -72,20 +71,20 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
         mPresenter?.start()
     }
 
+    var isLogin: Boolean = false
+
     override fun initListener() {
         btn_login.setOnClickListener { login() }
         btn_register.setOnClickListener { register() }
         tv_register.setOnClickListener {
-            tv_title.text = getString(R.string.register_en)
-            ll_login.visibility = View.GONE
-            ll_register.visibility = View.VISIBLE
+            isLogin = false
             openAnimation()
+
         }
         tv_login.setOnClickListener {
-            tv_title.text = getString(R.string.login_en)
-            ll_login.visibility = View.VISIBLE
-            ll_register.visibility = View.GONE
+            isLogin = true
             openAnimation()
+
         }
     }
 
@@ -146,9 +145,35 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
      * 登录注册切换动画
      */
     private fun openAnimation() {
-        var anim = ObjectAnimator.ofFloat(card_view, "rotationY", 0f, 360f)
-                .setDuration(1000)
+        var anim = ObjectAnimator.ofFloat(card_view, "scaleX", 1f, 0f)
+                .setDuration(500)
+        anim.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationRepeat(animation: Animator?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                if (isLogin) {
+                    tv_title.text = getString(R.string.login_en)
+                    ll_login.visibility = View.VISIBLE
+                    ll_register.visibility = View.GONE
+                } else {
+                    tv_title.text = getString(R.string.register_en)
+                    ll_login.visibility = View.GONE
+                    ll_register.visibility = View.VISIBLE
+                }
+                ObjectAnimator.ofFloat(card_view, "scaleX", 0f, 1f).setDuration(500).start()
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+
+        })
         anim.start()
+
     }
 
     override fun openDefaultHXListener(): Int {
