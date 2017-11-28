@@ -51,4 +51,5 @@
     <string name="login_chat_fail">登录聊天服务器失败: </string>
     <string name="register_fail">注册失败: </string>
     <string name="login_fail">登录失败: </string>
+    <string name="exit_app_again">再按一次退出程序</string>
 </resources>

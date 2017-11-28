@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:src="@mipmap/back" />
+        android:src="@drawable/back" />
 
     <TextView
         android:textStyle="bold"

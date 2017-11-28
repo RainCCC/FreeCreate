@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@mipmap/login_bg"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -310,7 +310,7 @@
                 android:layout_width="@dimen/npx130"
                 android:layout_height="@dimen/npx130"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_my"
+                android:src="@drawable/ic_my"
                 app:border_color="@color/white"
                 app:border_overlay="true"
                 app:border_width="@dimen/npx10" />

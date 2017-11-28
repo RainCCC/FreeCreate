@@ -11,7 +11,7 @@
         android:layout_height="@dimen/npx150"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/npx30"
-        android:src="@mipmap/ic_my" />
+        android:src="@drawable/ic_my" />
 
     <TextView
         style="@style/tv_1e1e1e_16sp"

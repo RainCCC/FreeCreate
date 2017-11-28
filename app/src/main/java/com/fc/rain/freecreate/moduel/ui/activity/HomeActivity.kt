@@ -2,7 +2,9 @@ package com.fc.rain.freecreate.moduel.ui.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.KeyEvent
 import android.view.View
+import android.widget.Toast
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
 import com.fc.rain.freecreate.moduel.contract.HomeContract
@@ -65,18 +67,13 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
     }
 
     override fun initData() {
+
     }
 
     override fun initListener() {
-        btn_home.setOnClickListener {
-            fragments?.get(0)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) }
-        }
-        btn_message.setOnClickListener {
-            fragments?.get(1)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) }
-        }
-        btn_my.setOnClickListener {
-            fragments?.get(2)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) }
-        }
+        rb_home.setOnClickListener { fragments?.get(0)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
+        rb_message.setOnClickListener { fragments?.get(1)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
+        rb_my.setOnClickListener { fragments?.get(2)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
     }
 
 
@@ -94,4 +91,24 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
         mPresenter?.destroyView()
     }
 
+    var exitTime: Long = 0
+
+    /*
+     * 重写onKeyDown方法
+     */
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            //2s之内按返回键就会推出
+
+            if (System.currentTimeMillis() - exitTime > 2000) {
+                toastMessage(getString(R.string.exit_app_again))
+                exitTime = System.currentTimeMillis()
+            } else {
+                finish()
+                System.exit(0)
+            }
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
+    }
 }
