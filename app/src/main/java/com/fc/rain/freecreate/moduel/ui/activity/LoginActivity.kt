@@ -15,6 +15,12 @@ import com.yanzhenjie.permission.AndPermission
 import com.yanzhenjie.permission.Permission
 import com.yanzhenjie.permission.PermissionListener
 
+/**
+ *
+ * Describe # 登录or注册
+ *
+ * Created by Rain on 2017/11/21.
+ */
 class LoginActivity : BaseActivity(), LoginContract.ILoginView {
 
     override fun registerSuccess() {
