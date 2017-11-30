@@ -7,6 +7,7 @@ import android.view.View
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
 import com.fc.rain.freecreate.moduel.contract.HomeContract
+import com.fc.rain.freecreate.moduel.model.bean.MyUser
 import com.fc.rain.freecreate.moduel.presenter.HomePresenter
 import com.fc.rain.freecreate.moduel.ui.fragment.HomeFragment
 import com.fc.rain.freecreate.moduel.ui.fragment.MessageFragment
@@ -22,6 +23,9 @@ import kotlinx.android.synthetic.main.title_bar.*
  * Created by Rain on 2017/11/21.
  */
 class HomeActivity : BaseActivity(), HomeContract.IHomeView {
+    override fun refreshFriendListSuccess(friendList: MutableList<MyUser>?) {
+
+    }
 
     var homeFragment: HomeFragment? = null
     var messageFragment: MessageFragment? = null
@@ -37,7 +41,7 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
     var fragments: MutableList<Fragment>? = arrayListOf()
 
     override fun initContract(savedInstanceState: Bundle?) {
-        HomePresenter(this)
+        HomePresenter(this,this)
         if (savedInstanceState == null) {
             homeFragment = HomeFragment()
             messageFragment = MessageFragment()
@@ -71,6 +75,7 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
     }
 
     override fun initListener() {
+        mPresenter?.addFriendListener()
         rb_home.setOnClickListener { fragments?.get(0)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
         rb_message.setOnClickListener { fragments?.get(1)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
         rb_my.setOnClickListener { fragments?.get(2)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
@@ -81,9 +86,6 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
 
     override fun setPresenter(presenter: HomeContract.IHomePresenter) {
         mPresenter = presenter
-    }
-
-    override fun receiveData() {
     }
 
     override fun onDestroy() {

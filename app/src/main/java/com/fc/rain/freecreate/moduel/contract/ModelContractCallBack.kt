@@ -44,4 +44,8 @@ class ModelContractCallBack {
 
         }
     }
+
+    interface IFriendFragmentCB{
+
+    }
 }

@@ -6,17 +6,16 @@ import com.fc.rain.freecreate.moduel.model.bean.MyUser
 
 /**
  *
- * Describe #
+ * Describe # 好友presenter
  *
- * Created by Rain on 2017/11/22.
+ * Created by Rain on 2017/11/29.
  */
-class HomeContract {
-    interface IHomeView : IBasePView<IHomePresenter> {
+class FriendContract {
+    interface View : IBasePView<Presenter> {
         fun refreshFriendListSuccess(friendList: MutableList<MyUser>?)
     }
 
-    interface IHomePresenter : IBasePresenter {
-        fun addFriendListener()
-        fun getHxFriendList()
+    interface Presenter : IBasePresenter {
+        fun getFriendList()
     }
 }

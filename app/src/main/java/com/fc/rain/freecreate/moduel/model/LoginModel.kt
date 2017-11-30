@@ -2,6 +2,7 @@ package com.fc.rain.freecreate.moduel.model
 
 import android.app.Activity
 import cn.bmob.v3.BmobUser
+import cn.bmob.v3.datatype.BmobFile
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.LogInListener
 import cn.bmob.v3.listener.SaveListener
@@ -21,7 +22,7 @@ import org.jetbrains.anko.custom.async
  */
 class LoginModel(var mContext: Activity, var mPresenter: ModelContractCallBack.ILoginHxCallBack) {
     fun registerToBmob(userName: String?, password: String?, emailAddress: String?) {
-        var myUser = MyUser("女", 18, "广州", "")
+        var myUser = MyUser()
         myUser.username = userName
         myUser.setPassword(password)
         myUser.signUp(object : SaveListener<MyUser>() {

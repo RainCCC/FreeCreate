@@ -4,12 +4,29 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_friend"
-        android:layout_margin="@dimen/npx30"
-        style="@style/tv_1e1e1e_16sp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:text="Rian"/>
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="@dimen/npx80"
+            android:layout_height="@dimen/npx80"
+            android:layout_margin="@dimen/npx20"
+            android:src="@drawable/my" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/npx20"
+            android:id="@+id/tv_name"
+            style="@style/tv_1e1e1e_16sp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/npx30"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textSize="@dimen/nsp22" />
+    </LinearLayout>
 
     <View style="@style/Cut_off_line" />
 

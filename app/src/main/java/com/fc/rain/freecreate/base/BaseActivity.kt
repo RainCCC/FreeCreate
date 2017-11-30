@@ -56,7 +56,6 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
                 EMClient.getInstance().addConnectionListener(mCurEMConnectionListener)
             }
         }
-
     }
 
     protected inner class DefaultConnectionListener : EMConnectionListener {
