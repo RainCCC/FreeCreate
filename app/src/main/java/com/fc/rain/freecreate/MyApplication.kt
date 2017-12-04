@@ -7,6 +7,10 @@ import com.hyphenate.chat.EMOptions
 import android.app.ActivityManager
 import android.content.Context
 import cn.bmob.v3.Bmob
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter
+import com.scwang.smartrefresh.layout.header.BezierRadarHeader
 
 
 /**
@@ -29,6 +33,28 @@ class MyApplication : Application() {
         initHx()
         //初始化Bmob
         initBmob()
+        initRefresh()
+    }
+
+    private fun initRefresh() {
+//设置全局的Header构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreater { context, _ ->
+            //            val header = ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate)
+//            header.setPrimaryColorId(R.color.colorPrimary)
+//            header.setAccentColorId(android.R.color.white)
+//            header.setEnableLastTime(false)
+            val header = BezierRadarHeader(context)
+            header
+            //指定为经典Header，默认是贝塞尔雷达Header
+        }
+        //设置全局的Footer构建器
+        SmartRefreshLayout.setDefaultRefreshFooterCreater { context, layout ->
+            layout.setEnableLoadmoreWhenContentNotFull(true)//内容不满一页时候启用加载更多
+            val footer = BallPulseFooter(context)
+            footer.setBackgroundResource(android.R.color.white)
+            footer.spinnerStyle = SpinnerStyle.Scale//设置为拉伸模式
+            footer//指定为经典Footer，默认是 BallPulseFooter
+        }
     }
 
     private fun initBmob() {

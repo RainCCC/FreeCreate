@@ -9,6 +9,7 @@ import com.fc.rain.freecreate.moduel.contract.FriendContract
 import com.fc.rain.freecreate.moduel.model.bean.MyUser
 import com.fc.rain.freecreate.moduel.presenter.FriendPresenter
 import com.fc.rain.freecreate.moduel.ui.adapter.FriendAdapter
+import kotlinx.android.synthetic.main.fragment_friend.*
 
 /**
  *
@@ -57,6 +58,8 @@ class FriendFragment : BaseFragment(), FriendContract.View {
     }
 
     override fun initListener() {
+        refresh.setOnRefreshListener { refreshlayout -> refreshlayout.finishRefresh(2000) }
+        refresh.setOnLoadmoreListener { refreshlayout -> refreshlayout.finishLoadmore(2000) }
     }
 
     override fun lazyLoadData() {
@@ -64,5 +67,4 @@ class FriendFragment : BaseFragment(), FriendContract.View {
 
     override val layoutResID: Int
         get() = R.layout.fragment_friend
-
 }

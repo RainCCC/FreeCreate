@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/title_bar" />
+    <include
+        layout="@layout/title_bar"
+        android:visibility="gone" />
 
     <FrameLayout
         android:id="@+id/fl_fragment"

@@ -79,7 +79,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".moduel.ui.activity.HomeActivity" />
+        <activity android:name=".moduel.ui.activity.HomeActivity"
+            android:theme="@style/BaseWhiteTheme"/>
         <activity android:name=".moduel.ui.activity.MyActivity" />
     </application>
 

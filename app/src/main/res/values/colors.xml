@@ -5,7 +5,7 @@
     <color name="colorPrimaryDark">#0e0e0e</color>
     <color name="colorAccent">#FF4081</color>
     <color name="app_bg_color">#2196f3</color>
-    <color name="app_color">#eeeeee</color>
+    <color name="app_color">#Fafafa</color>
     <!--全透明-->
     <color name="transparent">#00000000</color>
     <!--半透明-->
@@ -30,4 +30,5 @@
     <color name="color_2d2e32">#2d2e32</color>
     <color name="color_2196f3">#2196f3</color>
     <color name="color_1D328D">#1D328D</color>
+    <color name="color_FAFAFA">#FAFAFA</color>
 </resources>

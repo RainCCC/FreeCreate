@@ -25,11 +25,11 @@ import org.jetbrains.anko.toast
  * Created by Rain on 2017/11/23.
  */
 class MyFragment : BaseFragment() {
-    var etName: EditText? = null
-    var etReason: EditText? = null
+//    var etName: EditText? = null
+//    var etReason: EditText? = null
     override fun initView() {
-        etName = findViewById<EditText>(R.id.et_name) as EditText?
-        etReason = findViewById<EditText>(R.id.et_reason) as EditText?
+//        etName = findViewById<EditText>(R.id.et_name) as EditText?
+//        etReason = findViewById<EditText>(R.id.et_reason) as EditText?
         var tvUser = findViewById<TextView>(R.id.tv_name) as TextView
         tvUser?.text = BmobUser.getObjectByKey("username").toString()
     }
@@ -41,30 +41,30 @@ class MyFragment : BaseFragment() {
     }
 
     override fun initListener() {
-        findViewById<Button>(R.id.btn_add)?.setOnClickListener {
-
-            if (TextUtils.isEmpty(etName?.text.toString()) || TextUtils.isEmpty(etReason?.text.toString())) {
-                toast("username or reason can not isEmpty")
-            } else {
-                try {
-                    //参数为要添加的好友的username和添加理由
-                    EMClient.getInstance().contactManager().addContact(etName?.text.toString(), etReason?.text.toString())
-                    toast("发送好友请求成功！")
-                    etName?.text = null
-                    etReason?.text = null
-                } catch (e: HyphenateException) {
-                    toast(e.description)
-                }
-            }
-        }
-        findViewById<Button>(R.id.btn_exit)?.setOnClickListener {
+//        findViewById<Button>(R.id.btn_add)?.setOnClickListener {
+//
+//            if (TextUtils.isEmpty(etName?.text.toString()) || TextUtils.isEmpty(etReason?.text.toString())) {
+//                toast("username or reason can not isEmpty")
+//            } else {
+//                try {
+//                    //参数为要添加的好友的username和添加理由
+//                    EMClient.getInstance().contactManager().addContact(etName?.text.toString(), etReason?.text.toString())
+//                    toast("发送好友请求成功！")
+//                    etName?.text = null
+//                    etReason?.text = null
+//                } catch (e: HyphenateException) {
+//                    toast(e.description)
+//                }
+//            }
+//        }
+        findViewById<Button>(R.id.ll_exit)?.setOnClickListener {
             showLoading()
             EMClient.getInstance().logout(true, object : EMCallBack {
                 override fun onSuccess() {
                     // TODO Auto-generated method stub
                     mContext.runOnUiThread {
                         hideLoading()
-                        toast("退出登录成功")
+                        toast("exit_success")
                         //bmob退出登录
                         BmobUser.logOut()
                         SPUtils.clear(mContext)
@@ -82,7 +82,7 @@ class MyFragment : BaseFragment() {
                     // TODO Auto-generated method stub
                     mContext.runOnUiThread {
                         hideLoading()
-                        toast("退出登录失败")
+                        toast("exit_fail")
                     }
                 }
             })
