@@ -149,7 +149,7 @@
     <style name="ll_edit">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">@dimen/npx30</item>
+        <item name="android:padding">@dimen/npx40</item>
     </style>
 
     <style name="tv_999999_9sp">

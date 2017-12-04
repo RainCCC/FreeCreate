@@ -1,33 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_margin="@dimen/npx30"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/npx10"
+        app:cardElevation="@dimen/npx20">
 
-        <ImageView
-            android:id="@+id/iv_head"
-            android:layout_width="@dimen/npx50"
-            android:layout_height="@dimen/npx50"
-            android:layout_margin="@dimen/npx30"
-            android:src="@drawable/my" />
-
-        <TextView
-            android:id="@+id/tv_name"
-            style="@style/tv_1e1e1e_16sp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginRight="@dimen/npx30"
-            android:singleLine="true"
-            android:text="@string/app_name"
-            android:textSize="@dimen/nsp20" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    <View style="@style/Cut_off_line" />
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="@dimen/npx50"
+                android:layout_height="@dimen/npx50"
+                android:layout_margin="@dimen/npx30"
+                android:src="@drawable/my" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/tv_1e1e1e_16sp"
+                android:layout_width="match_parent"
+                android:layout_marginRight="@dimen/npx30"
+                android:singleLine="true"
+                android:text="@string/app_name"
+                android:textSize="@dimen/nsp20" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <View
+        style="@style/Cut_off_line"
+        android:visibility="gone" />
 
 
 </LinearLayout>
