@@ -12,6 +12,7 @@
     <color name="translucent">#55000000</color>
 
     <color name="white">#ffffff</color>
+    <color name="gray_pressed">#f0f0f0</color>
     <color name="black">#000000</color>
     <color name="blue">#13227a</color>
 

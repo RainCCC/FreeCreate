@@ -146,17 +146,20 @@
         <item name="android:textSize">@dimen/nsp17</item>
     </style>
 
-    <style name="ll_edit">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">@dimen/npx40</item>
-    </style>
-
     <style name="tv_999999_9sp">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/color_999999</item>
         <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="ll_edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ll_press_white_selector</item>
+        <item name="android:padding">@dimen/npx30</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:clickable">true</item>
     </style>
 
 </resources>
