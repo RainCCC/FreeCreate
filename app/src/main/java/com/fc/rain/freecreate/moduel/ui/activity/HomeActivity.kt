@@ -12,7 +12,7 @@ import com.fc.rain.freecreate.moduel.presenter.HomePresenter
 import com.fc.rain.freecreate.moduel.ui.fragment.HomeFragment
 import com.fc.rain.freecreate.moduel.ui.fragment.MessageFragment
 import com.fc.rain.freecreate.moduel.ui.fragment.MyFragment
-import com.fc.rain.freecreate.utils.AppActivityManager
+import com.fc.rain.freecreate.utils.AppManager
 import com.fc.rain.freecreate.utils.FragmentUtils
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.title_bar.*
@@ -107,7 +107,7 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
                 toastMessage(getString(R.string.exit_app_again))
                 exitTime = System.currentTimeMillis()
             } else {
-                AppActivityManager.getInstance()?.AppExit(this)
+                AppManager.appExit(this)
             }
             return true
         }

@@ -7,7 +7,7 @@ import android.os.Bundle
 import cn.bmob.v3.BmobUser
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.moduel.ui.activity.LoginActivity
-import com.fc.rain.freecreate.utils.AppActivityManager
+import com.fc.rain.freecreate.utils.AppManager
 import com.fc.rain.freecreate.utils.LoadDialogUtils
 import com.fc.rain.freecreate.utils.SPUtils
 import com.hyphenate.EMConnectionListener
@@ -34,7 +34,7 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        AppActivityManager.getInstance()?.addActivity(this)
+        AppManager.addActivity(this)
         mContext = this
         setContentView(layoutResID())
 
@@ -73,7 +73,7 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
 //                        BmobUser.getCurrentUser().delete()
                         BmobUser.logOut()
                         startActivity(Intent(this@BaseActivity, LoginActivity::class.java))
-                        AppActivityManager.getInstance()?.killAllActivity()
+                        AppManager.finishAllActivity()
                     }
                 // 显示帐号在其他设备登录
                     EMError.USER_LOGIN_ANOTHER_DEVICE -> {
@@ -82,7 +82,7 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
                         //bmob退出登录
                         BmobUser.logOut()
                         startActivity(Intent(this@BaseActivity, LoginActivity::class.java))
-                        AppActivityManager.getInstance()?.killAllActivity()
+                        AppManager.finishAllActivity()
                     }
                 }
                 if (NetUtils.hasNetwork(mContext)) {
@@ -104,7 +104,7 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
     override fun onDestroy() {
         super.onDestroy()
         mCurEMConnectionListener?.let { EMClient.getInstance().removeConnectionListener(it) }
-        AppActivityManager.getInstance()?.removeActivity(this)
+        AppManager.finishActivity(this)
     }
 
     protected abstract fun initContract(savedInstanceState: Bundle?)
