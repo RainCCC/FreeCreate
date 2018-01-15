@@ -1,11 +1,14 @@
 package com.fc.rain.freecreate.base
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.fc.rain.freecreate.MyApplication
+import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.utils.LoadDialogUtils
 import org.jetbrains.anko.support.v4.toast
 
@@ -50,6 +53,24 @@ abstract class BaseFragment : Fragment(), IBaseView {
         }
     }
 
+    override fun startActivity(intent: Intent?) {
+        super.startActivity(intent)
+        when (jumpAnimationMode()) {
+            MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT -> {
+                activity.overridePendingTransition(R.anim.translate_lr_enter, R.anim.translate_lr_out)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_TOPBOTTOM -> {
+                activity.overridePendingTransition(R.anim.translate_tb_enter, R.anim.translate_tb_out)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_ALPAH -> {
+                activity.overridePendingTransition(R.anim.alpha_enter, R.anim.alpha_out)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_SCALE -> {
+                activity.overridePendingTransition(R.anim.scale_enter, R.anim.scale_out)
+            }
+        }
+    }
+
     /**
      * 未显示的方法
      */
@@ -75,6 +96,8 @@ abstract class BaseFragment : Fragment(), IBaseView {
     protected abstract fun lazyLoadData()
 
     protected abstract val layoutResID: Int
+    //转场动画
+    open fun jumpAnimationMode(): Int = MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT
 
     override fun showLoading() {
         loadDialogUtils?.showLoadingDialog()

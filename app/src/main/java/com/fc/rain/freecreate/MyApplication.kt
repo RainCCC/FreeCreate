@@ -25,6 +25,11 @@ class MyApplication : Application() {
     companion object {
         //是否开启debug模式
         val isDebug = true
+        //转场动画的模式
+        val OVERRIDE_PENDING_TRANSITION_TRANSLATE_TOPBOTTOM = 1
+        val OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT = 2
+        val OVERRIDE_PENDING_TRANSITION_ALPAH = 3
+        val OVERRIDE_PENDING_TRANSITION_SCALE = 4
     }
 
     override fun onCreate() {

@@ -46,8 +46,8 @@ object AppManager {
         activityStack?.let {
             for (i in it.indices) {
                 if (it[i].javaClass == cls) {
-                    it.remove(it[i])
                     it[i].finish()
+                    it.remove(it[i])
                 }
             }
         }
@@ -60,8 +60,8 @@ object AppManager {
         activityStack?.let {
             for (i in it.indices) {
                 if (null != it[i]) {
-                    it.remove(it[i])
                     it[i].finish()
+                    it.remove(it[i])
                 }
             }
             it.clear()
@@ -88,8 +88,8 @@ object AppManager {
     fun finishActivity(activity: Activity?) {
         activityStack?.let {
             if (null != activity) {
-                it.remove(activity)
                 activity.finish()
+                it.remove(activity)
             }
         }
     }

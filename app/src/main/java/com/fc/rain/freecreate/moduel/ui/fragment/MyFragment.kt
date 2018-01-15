@@ -10,6 +10,7 @@ import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseFragment
 import com.fc.rain.freecreate.base.Constant
 import com.fc.rain.freecreate.moduel.ui.activity.LoginActivity
+import com.fc.rain.freecreate.moduel.ui.activity.MyActivity
 import com.fc.rain.freecreate.utils.SPUtils
 import com.hyphenate.EMCallBack
 import com.hyphenate.chat.EMClient
@@ -41,22 +42,9 @@ class MyFragment : BaseFragment() {
     }
 
     override fun initListener() {
-//        findViewById<Button>(R.id.btn_add)?.setOnClickListener {
-//
-//            if (TextUtils.isEmpty(etName?.text.toString()) || TextUtils.isEmpty(etReason?.text.toString())) {
-//                toast("username or reason can not isEmpty")
-//            } else {
-//                try {
-//                    //参数为要添加的好友的username和添加理由
-//                    EMClient.getInstance().contactManager().addContact(etName?.text.toString(), etReason?.text.toString())
-//                    toast("发送好友请求成功！")
-//                    etName?.text = null
-//                    etReason?.text = null
-//                } catch (e: HyphenateException) {
-//                    toast(e.description)
-//                }
-//            }
-//        }
+        findViewById<Button>(R.id.ll_set)?.setOnClickListener {
+            startActivity(Intent(context,MyActivity::class.java))
+        }
         findViewById<Button>(R.id.ll_exit)?.setOnClickListener {
             showLoading()
             EMClient.getInstance().logout(true, object : EMCallBack {
@@ -68,7 +56,7 @@ class MyFragment : BaseFragment() {
                         //bmob退出登录
                         BmobUser.logOut()
                         SPUtils.clear(mContext)
-                        startActivity(Intent(mContext, LoginActivity::class.java))
+                        startActivityForResult(Intent(mContext, LoginActivity::class.java),1)
                         activity.finish()
                     }
                 }

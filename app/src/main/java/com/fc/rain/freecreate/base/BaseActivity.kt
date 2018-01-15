@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import cn.bmob.v3.BmobUser
+import com.fc.rain.freecreate.MyApplication
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.moduel.ui.activity.LoginActivity
 import com.fc.rain.freecreate.utils.AppManager
@@ -25,7 +26,7 @@ import org.jetbrains.anko.toast
  */
 abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
 
-    val DEFAULTHXLISTENER = 100
+    val DEFAULTHXLISTENER = 0
     val CUSTOMHXLISTENER = 200
     var mCurEMConnectionListener: EMConnectionListener? = null
 
@@ -54,6 +55,42 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
             CUSTOMHXLISTENER -> {
                 mCurEMConnectionListener = mEMConnectionListener()
                 EMClient.getInstance().addConnectionListener(mCurEMConnectionListener)
+            }
+        }
+    }
+
+    override fun startActivity(intent: Intent?) {
+        super.startActivity(intent)
+        when (jumpAnimationMode()) {
+            MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT -> {
+                overridePendingTransition(R.anim.translate_lr_enter, R.anim.translate_lr_out)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_TOPBOTTOM -> {
+                overridePendingTransition(R.anim.translate_tb_enter, R.anim.translate_tb_out)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_ALPAH -> {
+                overridePendingTransition(R.anim.alpha_enter, R.anim.alpha_out)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_SCALE -> {
+                overridePendingTransition(R.anim.scale_enter, R.anim.scale_out)
+            }
+        }
+    }
+
+    override fun finish() {
+        super.finish()
+        when (jumpAnimationMode()) {
+            MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT -> {
+                overridePendingTransition(R.anim.translate_lr_enter_finish, R.anim.translate_lr_out_finish)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_TOPBOTTOM -> {
+                overridePendingTransition(R.anim.translate_tb_enter_finish, R.anim.translate_tb_out_finish)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_ALPAH -> {
+                overridePendingTransition(R.anim.alpha_enter, R.anim.alpha_out)
+            }
+            MyApplication.OVERRIDE_PENDING_TRANSITION_SCALE -> {
+                overridePendingTransition(R.anim.scale_enter, R.anim.scale_out)
             }
         }
     }
@@ -118,6 +155,9 @@ abstract class BaseActivity : AutoLayoutActivity(), IBaseView {
     protected abstract fun layoutResID(): Int
 
     protected abstract fun openDefaultHXListener(): Int
+
+    //转场动画
+    open fun jumpAnimationMode(): Int = MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT
 
     /**
      * 重写自定义环信连接状态监听

@@ -50,6 +50,7 @@
             android:layout_marginTop="@dimen/npx30"/>
 
         <LinearLayout
+            android:id="@+id/ll_set"
             style="@style/ll_edit"
             android:layout_below="@id/tv_name"
             android:gravity="center_vertical"
