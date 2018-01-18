@@ -2,6 +2,7 @@ package com.fc.rain.freecreate.moduel.ui.activity
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
 import com.fc.rain.freecreate.moduel.contract.LoginContract
-import com.fc.rain.freecreate.moduel.model.bean.MyUser
 import com.fc.rain.freecreate.moduel.presenter.LoginPresenter
 import com.yanzhenjie.permission.AndPermission
 import com.yanzhenjie.permission.Permission
@@ -24,6 +24,17 @@ import com.yanzhenjie.permission.PermissionListener
  */
 class LoginActivity : BaseActivity(), LoginContract.ILoginView {
 
+    companion object {
+        //权限申请code
+        var REQUEST_CONTACTS = 100
+        var REQUEST_CODE_SETTING = 200
+
+        fun startActivity(context: Context) {
+            var intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
+
     override fun registerSuccess() {
         et_register_name.text = null
         et_register_password.text = null
@@ -33,12 +44,6 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
         openAnimation()
         //清除本地数据
         BmobUser.logOut()
-    }
-
-    companion object {
-        //权限申请code
-        var REQUEST_CONTACTS = 100
-        var REQUEST_CODE_SETTING = 200
     }
 
     var mPresenter: LoginContract.ILoginPresenter? = null
@@ -53,16 +58,10 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
 
     override fun initContract(savedInstanceState: Bundle?) {
         LoginPresenter(this, this)
-
     }
 
     override fun initView() {
-        //判断是否登录过了
-        var currentUser = BmobUser.getCurrentUser(MyUser::class.java)
-        if (currentUser != null) {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }
+        hideBack(true)
 //        et_name.setText(SPUtils.get(this, USERNAME, "").toString())
 //        et_password.setText(SPUtils.get(this, PASSWORD, "").toString())
     }
@@ -136,11 +135,6 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        mPresenter?.start()
-    }
-
     /**
      * 登录注册切换动画
      */
@@ -176,22 +170,18 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
 
     }
 
-    override fun openDefaultHXListener(): Int {
-        return CUSTOMHXLISTENER
-    }
-
     /**
      * 登录
      */
     private fun login() {
-        mPresenter?.login(et_name.text.toString(), et_password.text.toString())
+        mPresenter?.login(et_name.text.toString().trim(), et_password.text.toString().trim())
     }
 
     /**
      * 注册
      */
     private fun register() {
-        mPresenter?.register(et_register_name.text.toString(), et_register_password.text.toString(), et_register_again_password.text.toString(), et_register_email.text.toString())
+        mPresenter?.register(et_register_name.text.toString().trim(), et_register_password.text.toString().trim(), et_register_again_password.text.toString().trim())
     }
 
     override fun onDestroy() {

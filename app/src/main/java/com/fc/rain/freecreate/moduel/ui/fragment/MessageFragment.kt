@@ -27,9 +27,9 @@ class MessageFragment : BaseFragment() {
         tabList?.add(getString(R.string.message))
         tabList?.add(getString(R.string.friend))
         tabList?.forEach { tab_layout.addTab(tab_layout.newTab().setText(it)) }
-        fragmentList?.add(ChatFragment.newInstance(null))
+        fragmentList?.add(MessageListFragment.newInstance(null))
         fragmentList?.add(FriendFragment.newInstance(null))
-        vp.adapter = MessageVpAdapter(activity.supportFragmentManager, tabList, fragmentList)
+        vp.adapter = activity?.supportFragmentManager?.let { MessageVpAdapter(it, tabList, fragmentList) }
         tab_layout.setupWithViewPager(vp)
 
     }

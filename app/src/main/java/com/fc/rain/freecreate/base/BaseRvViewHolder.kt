@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import com.zhy.autolayout.utils.AutoUtils
 
 import java.util.HashMap
 
@@ -23,7 +22,6 @@ class BaseRvViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     init {
         mViewMap = HashMap()
-        AutoUtils.autoSize(itemView)
     }
 
     /**

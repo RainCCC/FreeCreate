@@ -69,6 +69,22 @@ object AppManager {
     }
 
     /**
+     * 除了指定的Activity结束所有Activity
+     */
+    fun finishAllExceptActivity(cls: Class<*>) {
+        activityStack?.let {
+            for (i in it.indices) {
+                if (null != it[i]) {
+                    if (it[i].javaClass != cls) {
+                        it[i].finish()
+                        it.remove(it[i])
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * 退出应用程序
      */
     fun appExit(context: Context) {

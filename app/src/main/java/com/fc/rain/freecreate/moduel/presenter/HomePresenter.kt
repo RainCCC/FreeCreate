@@ -2,7 +2,6 @@ package com.fc.rain.freecreate.moduel.presenter
 
 import android.content.Context
 import com.fc.rain.freecreate.moduel.contract.HomeContract
-import com.fc.rain.freecreate.moduel.model.FriendModel
 
 /**
  *
@@ -12,14 +11,13 @@ import com.fc.rain.freecreate.moduel.model.FriendModel
  */
 class HomePresenter(var mContext: Context, var mView: HomeContract.IHomeView?) : HomeContract.IHomePresenter {
     override fun addFriendListener() {
-        FriendModel.addHxFriendListener(mContext)
     }
 
     override fun getHxFriendList() {
         //保存当前用户friend数据
-        FriendModel.saveFriend()
+//        HxNetUtils.instance.saveFriend()
         //同步hx到bmob好友列表
-        FriendModel.reFreshFriendDataToBmob(mContext)
+//        HxNetUtils.instance.reFreshFriendDataToBmob(mContext)
     }
 
 

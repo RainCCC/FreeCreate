@@ -20,7 +20,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
 
     <!--Bmob-->
     <!--允许联网 -->
@@ -39,14 +39,7 @@
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme">
 
-        <!-- AutoLayout 配置 -->
-        <meta-data
-            android:name="design_width"
-            android:value="768" />
-        <meta-data
-            android:name="design_height"
-            android:value="1280" />
-
+        <!--环信start-->
         <!-- 设置环信应用的AppKey -->
         <meta-data
             android:name="EASEMOB_APPKEY"
@@ -73,15 +66,70 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".moduel.ui.activity.LoginActivity">
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseBaiduMapActivity"
+            android:screenOrientation="portrait" />
+        <!-- 显示下载大图页面 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
+            android:screenOrientation="portrait" />
+        <!-- 下载文件 -->
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.easeui.ui.EaseShowVideoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- 语音通话 -->
+        <activity
+            android:name="com.hyphenate.hx.ui.VoiceCallActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 视频通话 -->
+        <activity
+            android:name="com.hyphenate.hx.ui.VideoCallActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hyphenate.hx.ui.ImageGridActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.hyphenate.hx.ui.RecorderVideoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".moduel.ui.activity.ChatActivity"
+            android:label="@string/title_chat"
+            android:theme="@style/BaseWhiteTheme" />
+
+        <provider
+            android:name=".utils.PhotoFileProvider"
+            android:authorities="com.fc.rain.freecreate.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fliepaths" />
+        </provider>
+        <!--环信end-->
+
+        <activity
+            android:name=".moduel.ui.activity.LoginActivity"
+            android:label="@string/title_login"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".moduel.ui.activity.HomeActivity"
-            android:theme="@style/BaseWhiteTheme"/>
+        <activity
+            android:name=".moduel.ui.activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/BaseWhiteTheme" />
         <activity android:name=".moduel.ui.activity.MyActivity" />
     </application>
 

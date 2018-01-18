@@ -4,6 +4,7 @@
     <string name="permission_message_failed">我们需要的一些必要权限被禁止，请授权给我们。</string>
     <string name="permission_ok">好的</string>
     <string name="permission_no">不给你</string>
+    <string name="package_name">com.fc.rain.freecreate</string>
 
     <string name="hint_add_friend">请输入你要添加的用户名</string>
     <string name="yes">是</string>
@@ -50,10 +51,16 @@
     <string name="login_chat_success">登录聊天服务器成功！</string>
     <string name="login_chat_fail">登录聊天服务器失败: </string>
     <string name="register_fail">注册失败: </string>
+    <string name="update_fail">更新失败: </string>
     <string name="login_fail">登录失败: </string>
     <string name="exit_app_again">再按一次退出程序</string>
     <string name="message">消息</string>
     <string name="friend">好友</string>
     <string name="update_friend_list_fail">更新好友列表失败</string>
     <string name="get_friend_list_fail">获取好友列表失败，请稍后重试 : </string>
+    <string name="loading">拼命加载中...</string>
+    <string name="title_chat">聊天</string>
+    <string name="hx_connection_error">连接环信聊天失败，请重新登录</string>
+    <string name="title_login">FreeCreate</string>
+
 </resources>

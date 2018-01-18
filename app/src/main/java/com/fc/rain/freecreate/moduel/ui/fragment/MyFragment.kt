@@ -26,7 +26,7 @@ import org.jetbrains.anko.toast
  * Created by Rain on 2017/11/23.
  */
 class MyFragment : BaseFragment() {
-//    var etName: EditText? = null
+    //    var etName: EditText? = null
 //    var etReason: EditText? = null
     override fun initView() {
 //        etName = findViewById<EditText>(R.id.et_name) as EditText?
@@ -43,21 +43,21 @@ class MyFragment : BaseFragment() {
 
     override fun initListener() {
         findViewById<Button>(R.id.ll_set)?.setOnClickListener {
-            startActivity(Intent(context,MyActivity::class.java))
+            startActivity(Intent(context, MyActivity::class.java))
         }
         findViewById<Button>(R.id.ll_exit)?.setOnClickListener {
             showLoading()
             EMClient.getInstance().logout(true, object : EMCallBack {
                 override fun onSuccess() {
                     // TODO Auto-generated method stub
-                    mContext.runOnUiThread {
+                    mContext?.runOnUiThread {
                         hideLoading()
                         toast("exit_success")
                         //bmob退出登录
                         BmobUser.logOut()
-                        SPUtils.clear(mContext)
-                        startActivityForResult(Intent(mContext, LoginActivity::class.java),1)
-                        activity.finish()
+                        mContext?.let { SPUtils.clear(it) }
+                        startActivityForResult(Intent(mContext, LoginActivity::class.java), 1)
+                        activity?.finish()
                     }
                 }
 
@@ -68,7 +68,7 @@ class MyFragment : BaseFragment() {
 
                 override fun onError(code: Int, message: String) {
                     // TODO Auto-generated method stub
-                    mContext.runOnUiThread {
+                    mContext?.runOnUiThread {
                         hideLoading()
                         toast("exit_fail")
                     }

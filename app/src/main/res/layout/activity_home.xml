@@ -11,7 +11,7 @@
     <FrameLayout
         android:id="@+id/fl_fragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/zero_dp"
         android:layout_weight="1" />
 
     <View style="@style/Cut_off_line" />
@@ -19,7 +19,7 @@
     <RadioGroup
         android:id="@+id/rg"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/npx120"
+        android:layout_height="@dimen/dp_60"
         android:background="@color/white"
         android:orientation="horizontal">
 
@@ -33,7 +33,7 @@
             android:checked="true"
             android:drawableTop="@drawable/home_selector"
             android:gravity="center"
-            android:padding="@dimen/npx15"
+            android:padding="@dimen/dp_8"
             android:text="主页"
             android:textColor="@drawable/home_text_selector"
             android:textSize="@dimen/nsp12" />
@@ -48,7 +48,7 @@
             android:checked="false"
             android:drawableTop="@drawable/message_selector"
             android:gravity="center"
-            android:padding="@dimen/npx15"
+            android:padding="@dimen/dp_8"
             android:text="消息"
             android:textColor="@drawable/home_text_selector"
             android:textSize="@dimen/nsp12" />
@@ -63,7 +63,7 @@
             android:checked="false"
             android:drawableTop="@drawable/my_selector"
             android:gravity="center"
-            android:padding="@dimen/npx15"
+            android:padding="@dimen/dp_8"
             android:text="我的"
             android:textColor="@drawable/home_text_selector"
             android:textSize="@dimen/nsp12" />
@@ -71,15 +71,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/npx120"
-        android:layout_alignParentBottom="true"
+        android:layout_height="@dimen/dp_60"
         android:background="@color/white"
         android:orientation="horizontal"
         android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/ll_home"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
@@ -92,7 +91,7 @@
 
             <TextView
                 style="@style/tv_1e1e1e_16sp"
-                android:layout_marginTop="@dimen/npx10"
+                android:layout_marginTop="@dimen/dp_5"
                 android:text="主页"
                 android:textSize="@dimen/nsp12"
                 android:textStyle="bold" />
@@ -101,7 +100,7 @@
 
         <LinearLayout
             android:id="@+id/ll_message"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
@@ -114,7 +113,7 @@
 
             <TextView
                 style="@style/tv_1e1e1e_16sp"
-                android:layout_marginTop="@dimen/npx10"
+                android:layout_marginTop="@dimen/dp_5"
                 android:text="消息"
                 android:textSize="@dimen/nsp12"
                 android:textStyle="bold" />
@@ -123,7 +122,7 @@
 
         <LinearLayout
             android:id="@+id/ll_my"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/zero_dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
@@ -136,7 +135,7 @@
 
             <TextView
                 style="@style/tv_1e1e1e_16sp"
-                android:layout_marginTop="@dimen/npx10"
+                android:layout_marginTop="@dimen/dp_5"
                 android:text="我的"
                 android:textSize="@dimen/nsp12"
                 android:textStyle="bold" />

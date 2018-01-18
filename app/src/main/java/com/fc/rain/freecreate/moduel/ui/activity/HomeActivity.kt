@@ -1,5 +1,7 @@
 package com.fc.rain.freecreate.moduel.ui.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.KeyEvent
@@ -14,6 +16,7 @@ import com.fc.rain.freecreate.moduel.ui.fragment.MessageFragment
 import com.fc.rain.freecreate.moduel.ui.fragment.MyFragment
 import com.fc.rain.freecreate.utils.AppManager
 import com.fc.rain.freecreate.utils.FragmentUtils
+import com.hyphenate.hx.HxHelper
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.title_bar.*
 
@@ -24,6 +27,14 @@ import kotlinx.android.synthetic.main.title_bar.*
  * Created by Rain on 2017/11/21.
  */
 class HomeActivity : BaseActivity(), HomeContract.IHomeView {
+
+    companion object {
+        fun startActivity(context:Context){
+            var intent = Intent(context, HomeActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
+
     override fun refreshFriendListSuccess(friendList: MutableList<MyUser>?) {
 
     }
@@ -35,14 +46,10 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
         return R.layout.activity_home
     }
 
-    override fun openDefaultHXListener(): Int {
-        return DEFAULTHXLISTENER
-    }
-
     var fragments: MutableList<Fragment>? = arrayListOf()
 
     override fun initContract(savedInstanceState: Bundle?) {
-        HomePresenter(this,this)
+        HomePresenter(this, this)
         if (savedInstanceState == null) {
             homeFragment = HomeFragment()
             messageFragment = MessageFragment()
@@ -66,9 +73,8 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
     }
 
     override fun initView() {
-        supportFragmentManager
-        iv_back.visibility = View.GONE
-
+        HxHelper.getInstance().pushActivity(this)
+        hideTitle(true)
     }
 
     override fun initData() {
@@ -76,7 +82,6 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
     }
 
     override fun initListener() {
-        mPresenter?.addFriendListener()
         rb_home.setOnClickListener { fragments?.get(0)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
         rb_message.setOnClickListener { fragments?.get(1)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
         rb_my.setOnClickListener { fragments?.get(2)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
@@ -91,6 +96,7 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
 
     override fun onDestroy() {
         super.onDestroy()
+        HxHelper.getInstance().popActivity(this)
         mPresenter?.destroyView()
     }
 

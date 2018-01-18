@@ -2,6 +2,7 @@ package com.fc.rain.freecreate.moduel.model.bean;
 
 
 import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.datatype.BmobRelation;
 
 /**
@@ -12,23 +13,58 @@ import cn.bmob.v3.datatype.BmobRelation;
 
 public class FriendBean extends BmobObject {
 
-    String mUserName;
+    String userId;
+    String nickName;
+    BmobFile headurl;
+    Integer age;
+    String sex;
+    String address;
 
-    BmobRelation friendUser;
-
-    public String getmUserName() {
-        return mUserName;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setmUserName(String mUserName) {
-        this.mUserName = mUserName;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public BmobRelation getFriendUser() {
-        return friendUser;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setFriendUser(BmobRelation friendUser) {
-        this.friendUser = friendUser;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public BmobFile getHeadurl() {
+        return headurl;
+    }
+
+    public void setHeadurl(BmobFile headurl) {
+        this.headurl = headurl;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

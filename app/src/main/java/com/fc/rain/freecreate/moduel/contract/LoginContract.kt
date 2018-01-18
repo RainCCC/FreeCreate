@@ -16,6 +16,6 @@ class LoginContract {
 
     interface ILoginPresenter : IBasePresenter, ModelContractCallBack.ILoginHxCallBack {
         fun login(userName: String?, password: String?)
-        fun register(userName: String?, password: String?, againPassword: String?, emailAddress: String?)
+        fun register(userName: String, password: String, againPassword: String)
     }
 }

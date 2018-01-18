@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<color name="colorPrimary">#56596b</color>-->
-    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimary">#9ad2ff</color>
     <color name="colorPrimaryDark">#0e0e0e</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="app_bg_color">#2196f3</color>
-    <color name="app_color">#Fafafa</color>
+    <color name="app_color">#9ad2ff</color>
+    <color name="app_bg_color">#fafafa</color>
+    <color name="loading_bg_color">#2a2826</color>
     <!--全透明-->
     <color name="transparent">#00000000</color>
     <!--半透明-->

@@ -20,8 +20,4 @@ class MyActivity : BaseActivity() {
     override fun layoutResID(): Int {
         return R.layout.activity_my
     }
-
-    override fun openDefaultHXListener(): Int {
-        return 0
-    }
 }

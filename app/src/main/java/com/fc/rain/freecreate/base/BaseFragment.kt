@@ -24,19 +24,21 @@ abstract class BaseFragment : Fragment(), IBaseView {
 
     var loadDialogUtils: LoadDialogUtils? = null
 
-    protected lateinit var mContext: Context
+    protected var mContext: Context? = null
     var rootView: View? = null
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mContext = context
-        rootView = LayoutInflater.from(mContext).inflate(layoutResID, null)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        mContext = activity
+        if (rootView == null) {
+            rootView = LayoutInflater.from(mContext).inflate(layoutResID, null)
+        }
         initView()
         return rootView
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        loadDialogUtils = LoadDialogUtils(mContext)
+        loadDialogUtils = mContext?.let { LoadDialogUtils(it) }
         initContract()
         initData()
         initListener()
@@ -57,16 +59,16 @@ abstract class BaseFragment : Fragment(), IBaseView {
         super.startActivity(intent)
         when (jumpAnimationMode()) {
             MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT -> {
-                activity.overridePendingTransition(R.anim.translate_lr_enter, R.anim.translate_lr_out)
+                activity?.overridePendingTransition(R.anim.translate_lr_enter, R.anim.translate_lr_out)
             }
             MyApplication.OVERRIDE_PENDING_TRANSITION_TRANSLATE_TOPBOTTOM -> {
-                activity.overridePendingTransition(R.anim.translate_tb_enter, R.anim.translate_tb_out)
+                activity?.overridePendingTransition(R.anim.translate_tb_enter, R.anim.translate_tb_out)
             }
             MyApplication.OVERRIDE_PENDING_TRANSITION_ALPAH -> {
-                activity.overridePendingTransition(R.anim.alpha_enter, R.anim.alpha_out)
+                activity?.overridePendingTransition(R.anim.alpha_enter, R.anim.alpha_out)
             }
             MyApplication.OVERRIDE_PENDING_TRANSITION_SCALE -> {
-                activity.overridePendingTransition(R.anim.scale_enter, R.anim.scale_out)
+                activity?.overridePendingTransition(R.anim.scale_enter, R.anim.scale_out)
             }
         }
     }

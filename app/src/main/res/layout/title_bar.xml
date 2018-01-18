@@ -1,51 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_head_title"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
+    android:layout_height="@dimen/title_bar_height"
     android:background="@color/colorPrimary"
-    android:id="@+id/rl_title">
+    android:elevation="@dimen/dp_3">
 
-    <ImageView
-        android:id="@+id/iv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:src="@drawable/back" />
+    <RelativeLayout
+        android:id="@+id/rl_head_back"
+        android:layout_width="@dimen/title_bar_height"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:src="@drawable/back" />
+    </RelativeLayout>
 
     <TextView
-        android:textStyle="bold"
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_head_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="22sp" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/nsp22" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="@dimen/line_dp"
         android:layout_alignParentBottom="true"
-        android:background="#e5e5e5" />
-
-    <TextView
-        android:id="@+id/tv_right"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:gravity="bottom"
-        android:padding="15dp"
-        android:text="更多"
-        android:textColor="#1e1e1e"
-        android:textSize="14sp"
+        android:background="#e5e5e5"
         android:visibility="gone" />
 
-    <ImageView
-        android:id="@+id/iv_right"
+
+    <RelativeLayout
+        android:id="@+id/rl_head_right"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:padding="15dp" />
+        android:minWidth="@dimen/title_bar_height">
+
+        <ImageView
+            android:id="@+id/iv_head_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_15"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_head_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/dp_17"
+            android:layout_marginRight="@dimen/dp_15"
+            android:gravity="center"
+            android:textColor="#1e1e1e"
+            android:textSize="@dimen/nsp14"
+            android:visibility="gone" />
+    </RelativeLayout>
 
 </RelativeLayout>

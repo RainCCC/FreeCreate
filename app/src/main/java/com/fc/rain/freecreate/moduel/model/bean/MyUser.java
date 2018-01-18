@@ -13,7 +13,34 @@ public class MyUser extends BmobUser {
     String sex;
     Integer age;
     String address;
+    String hxUid;
+    String hxPassword;
+    String nickName;
     BmobFile headurl;
+
+    public String getHxUid() {
+        return hxUid;
+    }
+
+    public void setHxUid(String hxUid) {
+        this.hxUid = hxUid;
+    }
+
+    public String getHxPassword() {
+        return hxPassword;
+    }
+
+    public void setHxPassword(String hxPassword) {
+        this.hxPassword = hxPassword;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
 
     public String getSex() {
         return sex;

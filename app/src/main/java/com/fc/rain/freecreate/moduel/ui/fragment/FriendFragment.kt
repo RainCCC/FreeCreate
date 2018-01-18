@@ -3,12 +3,15 @@ package com.fc.rain.freecreate.moduel.ui.fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseFragment
 import com.fc.rain.freecreate.moduel.contract.FriendContract
 import com.fc.rain.freecreate.moduel.model.bean.MyUser
 import com.fc.rain.freecreate.moduel.presenter.FriendPresenter
+import com.fc.rain.freecreate.moduel.ui.activity.ChatActivity
 import com.fc.rain.freecreate.moduel.ui.adapter.FriendAdapter
+import com.qiongliao.qiongliaomerchant.base.BaseRainRVAdapter
 import kotlinx.android.synthetic.main.fragment_friend.*
 
 /**
@@ -30,6 +33,7 @@ class FriendFragment : BaseFragment(), FriendContract.View {
     }
 
     var mPresenter: FriendContract.Presenter? = null
+
     override fun setPresenter(presenter: FriendContract.Presenter) {
         mPresenter = presenter
     }
@@ -50,7 +54,7 @@ class FriendFragment : BaseFragment(), FriendContract.View {
     }
 
     override fun initContract() {
-        FriendPresenter(context, this)
+        context?.let { FriendPresenter(it, this) }
     }
 
     override fun initData() {
@@ -60,6 +64,12 @@ class FriendFragment : BaseFragment(), FriendContract.View {
     override fun initListener() {
         refresh.setOnRefreshListener { refreshlayout -> refreshlayout.finishRefresh(2000) }
         refresh.setOnLoadmoreListener { refreshlayout -> refreshlayout.finishLoadmore(2000) }
+        adapter?.setIOnClickListener(object : BaseRainRVAdapter.IOnClickListener {
+            override fun onClick(view: View, position: Int) {
+                mContext?.let { list?.get(position)?.username?.let { it1 -> ChatActivity.startActivity(it, it1) } }
+            }
+
+        })
     }
 
     override fun lazyLoadData() {

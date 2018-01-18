@@ -8,6 +8,8 @@ package com.fc.rain.freecreate.base
  */
 interface IBaseView {
     fun showLoading()
+    fun showBaseLoading(){}
+    fun hideBaseLoading(){}
     fun hideLoading()
     fun toastMessage(message: String)
 }
