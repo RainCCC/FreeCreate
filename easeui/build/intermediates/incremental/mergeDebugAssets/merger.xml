@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\MyWork\FreeCreate\easeui\src\main\assets"><file name="hyphenate_certs/hyphenate_root.crt.der" path="E:\MyWork\FreeCreate\easeui\src\main\assets\hyphenate_certs\hyphenate_root.crt.der"/></source><source path="E:\MyWork\FreeCreate\easeui\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\MyWork\FreeCreate\easeui\src\debug\assets"/></dataSet></merger>
