@@ -35,6 +35,10 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
         }
     }
 
+    override fun jumpAnimationMode(): Int {
+        return 0
+    }
+
     override fun registerSuccess() {
         et_register_name.text = null
         et_register_password.text = null

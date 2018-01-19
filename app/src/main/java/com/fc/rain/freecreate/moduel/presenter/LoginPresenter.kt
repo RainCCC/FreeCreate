@@ -150,7 +150,7 @@ class LoginPresenter(var mContext: Activity, var mView: LoginContract.ILoginView
         mContext.runOnUiThread {
             HomeActivity.startActivity(mContext)
             mView?.hideLoading()
-            mView?.hideBaseLoading()
+//            mView?.hideBaseLoading()
             mContext.finish()
         }
     }
