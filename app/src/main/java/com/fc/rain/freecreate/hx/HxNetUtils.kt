@@ -6,16 +6,16 @@ import android.app.NotificationManager
 import android.content.Context
 import android.content.Context.NOTIFICATION_SERVICE
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Build
 import android.support.annotation.RequiresApi
-import cn.bmob.v3.BmobUser
+import cn.bmob.v3.exception.BmobException
+import com.fc.rain.freecreate.MyApplication
 import com.fc.rain.freecreate.R
+import com.fc.rain.freecreate.base.Constant
 import com.fc.rain.freecreate.moduel.contract.SuperListener
-import com.fc.rain.freecreate.moduel.ui.activity.LoginActivity
-import com.fc.rain.freecreate.utils.AppManager
 import com.fc.rain.freecreate.utils.BmobNetUtils
 import com.fc.rain.freecreate.utils.LogUtil
-import com.fc.rain.freecreate.utils.SPUtils
 import com.hyphenate.*
 import com.hyphenate.chat.EMClient
 import com.hyphenate.chat.EMMessage
@@ -96,8 +96,17 @@ class HxNetUtils private constructor() {
             override fun onContactDeleted(username: String) {
                 //被删除时回调此方法
                 mContext.runOnUiThread {
-                    toast(username + mContext.getString(R.string.already_delete_friend))
-//                    refreshFriendList(mContext)
+//                    toast(username + mContext.getString(R.string.already_delete_friend))
+                    BmobNetUtils.saveFriend(object : SuperListener.RequestSaveBmobFriendListener {
+                        override fun requestSuccess(list: MutableList<String>) {
+                        }
+
+                        override fun requestFail(bmobError: BmobException?, hxError: HyphenateException?) {
+                        }
+                        override fun requestDone() {
+                            mContext.sendBroadcast(Intent(Constant.BroadcastReceiverAction.REFRESHFRIENDLISTACTION))
+                        }
+                    })
                 }
             }
 
@@ -105,8 +114,18 @@ class HxNetUtils private constructor() {
             override fun onContactAdded(username: String) {
                 //增加了联系人时回调此方法
                 mContext.runOnUiThread {
-                    toast(username + mContext.getString(R.string.already_add_friend))
-//                    refreshFriendList(mContext)
+//                    toast(username + mContext.getString(R.string.already_add_friend))
+                    BmobNetUtils.saveFriend(object : SuperListener.RequestSaveBmobFriendListener {
+                        override fun requestSuccess(list: MutableList<String>) {
+                        }
+
+                        override fun requestFail(bmobError: BmobException?, hxError: HyphenateException?) {
+                        }
+
+                        override fun requestDone() {
+                            mContext.sendBroadcast(Intent(Constant.BroadcastReceiverAction.REFRESHFRIENDLISTACTION))
+                        }
+                    })
                 }
             }
         })
@@ -123,9 +142,18 @@ class HxNetUtils private constructor() {
     }
 
     //获取HX所有好友
-    fun getHxFriendList(): MutableList<String> {
-        var allContactsFromServer = EMClient.getInstance().contactManager().allContactsFromServer
-        return allContactsFromServer
+    @Synchronized
+    fun getHxFriendList(callBack: SuperListener.RequestHxFriendListener?) {
+        MyApplication.instance.doAsync {
+            try {
+                var allContactsFromServer = EMClient.getInstance().contactManager().allContactsFromServer
+                MyApplication.instance.runOnUiThread { callBack?.requestSuccess(allContactsFromServer) }
+            } catch (e: HyphenateException) {
+                MyApplication.instance.runOnUiThread { callBack?.requestFail(e) }
+            } finally {
+                MyApplication.instance.runOnUiThread { callBack?.requestDone() }
+            }
+        }
     }
 
 
@@ -191,9 +219,9 @@ class HxNetUtils private constructor() {
     }
 
     /**
-     * 被挤下线的操作
+     * 下线的操作
      */
-    private fun offLineOperation(mContext: Context) {
+    fun offLineOperation(mContext: Context) {
         //退出登录
         logoutHx(object : EMCallBack {
             override fun onSuccess() {

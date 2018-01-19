@@ -2834,6 +2834,21 @@
             ]
         },
         {
+            "outputFile": "E:\\MyWork\\FreeCreate\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-v13_values-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\5278e5c74c57d2ae4bdb3efac1a682b3\\res\\values-v13\\values-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "E:\\MyWork\\FreeCreate\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-af_values-af.arsc.flat",
             "map": [
                 {
@@ -2861,21 +2876,6 @@
                         "startOffsets": "1906",
                         "endColumns": "100",
                         "endOffsets": "2002"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "E:\\MyWork\\FreeCreate\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-v13_values-v13.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\5278e5c74c57d2ae4bdb3efac1a682b3\\res\\values-v13\\values-v13.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "58",
-                        "endOffsets": "109"
                     }
                 }
             ]

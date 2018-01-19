@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_gravity="center"
-    android:layout_width="250px"
-    android:layout_height="250px"
+    android:layout_width="@dimen/dp_130"
+    android:layout_height="@dimen/dp_130"
     android:background="@drawable/bg_white_shape">
 
     <LinearLayout
@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="@dimen/dp_10">
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
 
         <TextView
             android:textColor="@color/black"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/dp_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="加载中..."/>

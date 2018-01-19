@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.KeyEvent
-import android.view.View
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
 import com.fc.rain.freecreate.moduel.contract.HomeContract
@@ -18,7 +17,6 @@ import com.fc.rain.freecreate.utils.AppManager
 import com.fc.rain.freecreate.utils.FragmentUtils
 import com.hyphenate.hx.HxHelper
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.title_bar.*
 
 /**
  *

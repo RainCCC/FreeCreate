@@ -66,10 +66,16 @@ class FriendFragment : BaseFragment(), FriendContract.View {
         refresh.setOnLoadmoreListener { refreshlayout -> refreshlayout.finishLoadmore(2000) }
         adapter?.setIOnClickListener(object : BaseRainRVAdapter.IOnClickListener {
             override fun onClick(view: View, position: Int) {
-                mContext?.let { list?.get(position)?.username?.let { it1 -> ChatActivity.startActivity(it, it1) } }
+                mContext?.let { list?.get(position)?.hxUid?.let { it1 -> ChatActivity.startActivity(it, it1) } }
             }
 
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter?.destroyView()
+        mPresenter = null
     }
 
     override fun lazyLoadData() {

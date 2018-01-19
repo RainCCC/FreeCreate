@@ -14,12 +14,29 @@ class SuperListener {
     interface RegisterHxListener {
         fun createSuccess(username: String, password: String)
         fun createFail(e: HyphenateException)
-        fun createDone(){}
+        fun createDone() {}
     }
 
     interface RegisterBmobListener {
         fun createSuccess(mUser: MyUser?)
         fun createFail(e: BmobException?)
-        fun createDone(){}
+        fun createDone() {}
+    }
+
+    interface RequestHxFriendListener {
+        fun requestSuccess(list: MutableList<String>)
+        fun requestFail(e: HyphenateException?)
+        fun requestDone() {}
+    }
+
+    interface RequestSaveBmobFriendListener {
+        fun requestSuccess(list: MutableList<String>)
+        fun requestFail(bmobError: BmobException?, hxError: HyphenateException?)
+        fun requestDone() {}
+    }
+    interface RequestBmobFriendListListener {
+        fun requestSuccess(list: MutableList<MyUser>)
+        fun requestFail(bmobError: BmobException?)
+        fun requestDone() {}
     }
 }

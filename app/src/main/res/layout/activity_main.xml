@@ -17,13 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="60dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginBottom="@dimen/dp_60"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:layout_marginRight="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_60"
             app:cardBackgroundColor="@color/color_F1FBFA_white"
-            app:cardCornerRadius="@dimen/npx20"
-            app:cardElevation="@dimen/npx50"
+            app:cardCornerRadius="@dimen/dp_10"
+            app:cardElevation="@dimen/dp_25"
             app:cardPreventCornerOverlap="true">
 
             <LinearLayout
@@ -31,24 +31,24 @@
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/npx60"
-                android:paddingLeft="@dimen/npx60"
-                android:paddingRight="@dimen/npx60">
+                android:paddingBottom="@dimen/dp_30"
+                android:paddingLeft="@dimen/dp_30"
+                android:paddingRight="@dimen/dp_30">
 
                 <com.fc.rain.freecreate.utils.MyCircleImageView
-                    android:layout_width="@dimen/npx130"
-                    android:layout_height="@dimen/npx130"
-                    android:layout_marginTop="@dimen/npx30"
+                    android:layout_width="@dimen/dp_65"
+                    android:layout_height="@dimen/dp_65"
+                    android:layout_marginTop="@dimen/dp_15"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_my"
                     app:border_color="@color/white"
                     app:border_overlay="true"
-                    app:border_width="@dimen/npx10" />
+                    app:border_width="@dimen/dp_5" />
 
                 <TextView
                     android:id="@+id/tv_title"
                     style="@style/tv_white_16sp"
-                    android:layout_marginTop="@dimen/npx10"
+                    android:layout_marginTop="@dimen/dp_5"
                     android:text="@string/login_en"
                     android:textColor="@color/color_2d2e32"
                     android:textSize="@dimen/nsp20"
@@ -56,7 +56,7 @@
 
                 <View
                     style="@style/Cut_off_line"
-                    android:layout_marginTop="@dimen/npx10" />
+                    android:layout_marginTop="@dimen/dp_5" />
 
                 <LinearLayout
                     android:id="@+id/ll_login"
@@ -69,7 +69,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/npx20"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:orientation="vertical">
 
                         <EditText
@@ -79,20 +79,20 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="@string/user_name"
-                            android:paddingBottom="@dimen/npx10"
-                            android:paddingTop="@dimen/npx30"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:paddingTop="@dimen/dp_15"
                             android:textSize="@dimen/nsp14" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/npx3"
+                            android:layout_height="@dimen/dp_1"
                             android:background="@color/color_2196f3" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/npx20"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:orientation="vertical">
 
                         <EditText
@@ -103,20 +103,20 @@
                             android:background="@null"
                             android:hint="@string/password"
                             android:inputType="textPassword"
-                            android:paddingBottom="@dimen/npx10"
-                            android:paddingTop="@dimen/npx30"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:paddingTop="@dimen/dp_15"
                             android:textSize="@dimen/nsp14" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/npx3"
+                            android:layout_height="@dimen/dp_1"
                             android:background="@color/color_2196f3" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/npx30"
+                        android:layout_marginTop="@dimen/dp_15"
                         android:orientation="horizontal">
 
                         <TextView
@@ -124,8 +124,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:paddingBottom="@dimen/npx20"
-                            android:paddingTop="@dimen/npx20"
+                            android:paddingBottom="@dimen/dp_10"
+                            android:paddingTop="@dimen/dp_10"
                             android:text="@string/forget_password"
                             android:textColor="@color/color_text_a1a139"
                             android:textSize="@dimen/nsp14" />
@@ -149,8 +149,8 @@
                         <Button
                             android:id="@+id/btn_login"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/npx80"
-                            android:layout_marginTop="@dimen/npx30"
+                            android:layout_height="@dimen/dp_40"
+                            android:layout_marginTop="@dimen/dp_15"
                             android:background="@drawable/btn_1d328d_selector"
                             android:text="@string/login"
                             android:textColor="@color/color_F1FBFA_white" />
@@ -168,7 +168,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/npx20"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:orientation="vertical">
 
                         <EditText
@@ -178,20 +178,20 @@
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="@string/hint_user_name"
-                            android:paddingBottom="@dimen/npx10"
-                            android:paddingTop="@dimen/npx30"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:paddingTop="@dimen/dp_15"
                             android:textSize="@dimen/nsp14" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/npx3"
+                            android:layout_height="@dimen/dp_1"
                             android:background="@color/color_2196f3" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/npx20"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:orientation="vertical">
 
                         <EditText
@@ -202,20 +202,20 @@
                             android:background="@null"
                             android:hint="@string/hint_password"
                             android:inputType="textPassword"
-                            android:paddingBottom="@dimen/npx10"
-                            android:paddingTop="@dimen/npx30"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:paddingTop="@dimen/dp_15"
                             android:textSize="@dimen/nsp14" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/npx3"
+                            android:layout_height="@dimen/dp_1"
                             android:background="@color/color_2196f3" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/npx20"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:orientation="vertical">
 
                         <EditText
@@ -226,13 +226,13 @@
                             android:background="@null"
                             android:hint="@string/hint_password_again"
                             android:inputType="textPassword"
-                            android:paddingBottom="@dimen/npx10"
-                            android:paddingTop="@dimen/npx30"
+                            android:paddingBottom="@dimen/dp_5"
+                            android:paddingTop="@dimen/dp_15"
                             android:textSize="@dimen/nsp14" />
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/npx3"
+                            android:layout_height="@dimen/dp_1"
                             android:background="@color/color_2196f3" />
                     </LinearLayout>
 
@@ -240,7 +240,7 @@
                         android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/npx20"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -256,21 +256,21 @@
                                 android:background="@null"
                                 android:hint="@string/hint_email"
                                 android:inputType="textEmailAddress"
-                                android:paddingBottom="@dimen/npx10"
-                                android:paddingTop="@dimen/npx30"
+                                android:paddingBottom="@dimen/dp_5"
+                                android:paddingTop="@dimen/dp_15"
                                 android:textSize="@dimen/nsp14" />
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/npx3"
+                                android:layout_height="@dimen/dp_1"
                                 android:background="@color/color_2196f3" />
                         </LinearLayout>
 
                         <Button
                             android:id="@+id/btn_email"
-                            android:layout_width="@dimen/npx150"
-                            android:layout_height="@dimen/npx50"
-                            android:layout_marginTop="@dimen/npx30"
+                            android:layout_width="@dimen/dp_75"
+                            android:layout_height="@dimen/dp_75"
+                            android:layout_marginTop="@dimen/dp_15"
                             android:background="@drawable/btn_1d328d_selector"
                             android:text="@string/check_email"
                             android:textColor="@color/color_F1FBFA_white"
@@ -283,7 +283,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:orientation="horizontal"
-                        android:paddingTop="@dimen/npx20">
+                        android:paddingTop="@dimen/dp_10">
 
                         <TextView
                             android:id="@+id/tv_login"
@@ -303,7 +303,7 @@
                         <Button
                             android:id="@+id/btn_register"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/npx80"
+                            android:layout_height="@dimen/dp_40"
                             android:background="@drawable/btn_1d328d_selector"
                             android:text="@string/register"
                             android:textColor="@color/color_F1FBFA_white" />

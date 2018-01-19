@@ -2,7 +2,6 @@ package com.fc.rain.freecreate.moduel.ui.adapter
 
 import android.content.Context
 import com.fc.rain.freecreate.R
-import com.fc.rain.freecreate.moduel.model.bean.FriendBean
 import com.fc.rain.freecreate.moduel.model.bean.MyUser
 import com.qiongliao.qiongliaomerchant.base.BaseRainRVAdapter
 import com.qiongliao.qiongliaomerchant.base.BaseRvViewHolder

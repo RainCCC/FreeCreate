@@ -8,10 +8,10 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/npx30"
+        android:layout_margin="@dimen/dp_10"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="@dimen/npx10"
-        app:cardElevation="@dimen/npx20">
+        app:cardCornerRadius="@dimen/dp_5"
+        app:cardElevation="@dimen/dp_5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,16 +21,16 @@
 
             <ImageView
                 android:id="@+id/iv_head"
-                android:layout_width="@dimen/npx50"
-                android:layout_height="@dimen/npx50"
-                android:layout_margin="@dimen/npx30"
+                android:layout_width="@dimen/dp_25"
+                android:layout_height="@dimen/dp_25"
+                android:layout_margin="@dimen/dp_15"
                 android:src="@drawable/my" />
 
             <TextView
                 android:id="@+id/tv_name"
                 style="@style/tv_1e1e1e_16sp"
                 android:layout_width="match_parent"
-                android:layout_marginRight="@dimen/npx30"
+                android:layout_marginRight="@dimen/dp_15"
                 android:singleLine="true"
                 android:text="@string/app_name"
                 android:textSize="@dimen/nsp20" />

@@ -1,5 +1,7 @@
 package com.fc.rain.freecreate.moduel.model.bean;
 
+import java.util.List;
+
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 
@@ -16,7 +18,16 @@ public class MyUser extends BmobUser {
     String hxUid;
     String hxPassword;
     String nickName;
+    List<String> friendList;
     BmobFile headurl;
+
+    public List<String> getFriendList() {
+        return friendList;
+    }
+
+    public void setFriendList(List<String> friendList) {
+        this.friendList = friendList;
+    }
 
     public String getHxUid() {
         return hxUid;

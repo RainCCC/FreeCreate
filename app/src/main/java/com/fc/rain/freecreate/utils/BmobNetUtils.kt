@@ -5,14 +5,12 @@ import cn.bmob.v3.BmobObject
 import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.BmobUser
 import cn.bmob.v3.exception.BmobException
-import cn.bmob.v3.listener.FindListener
-import cn.bmob.v3.listener.SaveListener
-import cn.bmob.v3.listener.UpdateListener
+import cn.bmob.v3.listener.*
 import com.fc.rain.freecreate.moduel.contract.SuperListener
-import com.fc.rain.freecreate.moduel.model.bean.FriendBean
 import com.fc.rain.freecreate.moduel.model.bean.MyUser
 import com.fc.rain.freecreate.moduel.ui.activity.LoginActivity
-import cn.bmob.v3.listener.LogInListener
+import com.hyphenate.exceptions.HyphenateException
+import com.qiongliao.qiongliaomerchant.hx.HxNetUtils
 
 
 /**
@@ -66,25 +64,77 @@ object BmobNetUtils {
         return BmobUser.getObjectByKey("username").toString()
     }
 
-    //查询自己的好友bean
-    fun findFriendList(mUserName: String, listener: FindListener<FriendBean>) {
-        var bmobQuery = BmobQuery<FriendBean>()
-        bmobQuery.addWhereEqualTo("mUserName", mUserName)
-        bmobQuery.findObjects(listener)
+    //获取自己的用户id
+    fun getSelfUserId(): String {
+        return BmobUser.getObjectByKey("objectId").toString()
     }
 
-    //添加用户信息到好友bean
-    fun saveFriend() {
-//        var friendBean = FriendBean()
-//        friendBean.setmUserName(BmobUser.getObjectByKey("username").toString())
-//        friendBean.save(object : SaveListener<String>() {
-//            override fun done(objectId: String?, e: BmobException?) {
-//                if (e == null) {
-//                } else {
-//                    LogUtil.i("bmob", "失败：" + e.message + "," + e.errorCode)
-//                }
-//            }
-//        })
+    //获取自己的用户对象
+    fun <T> getCurrentUser(clazz: Class<T>): T? {
+        return BmobUser.getCurrentUser(clazz)
+    }
+
+    //保存好友信息到bmob
+    fun saveFriend(callBack: SuperListener.RequestSaveBmobFriendListener?) {
+        HxNetUtils.instance.getHxFriendList(object : SuperListener.RequestHxFriendListener {
+            override fun requestSuccess(list: MutableList<String>) {
+                var currentUser = getCurrentUser(MyUser::class.java)
+                currentUser?.let {
+                    currentUser.setValue("friendList", list)
+                    currentUser.update(object : UpdateListener() {
+                        override fun done(p0: BmobException?) {
+                            if (p0 == null) {
+                                callBack?.requestSuccess(list)
+                            } else {
+                                callBack?.requestFail(p0, null)
+                            }
+                            callBack?.requestDone()
+                        }
+                    })
+                }
+            }
+
+            override fun requestFail(e: HyphenateException?) {
+                callBack?.requestFail(null, e)
+                callBack?.requestDone()
+            }
+        })
+
+    }
+
+    //获取服务器好友列表
+    @Synchronized
+    fun getFriendDetailMessage(callBack: SuperListener.RequestBmobFriendListListener?) {
+        var query = BmobQuery<MyUser>()
+        query.getObject(getSelfUserId(), object : QueryListener<MyUser>() {
+            override fun done(p0: MyUser?, p1: BmobException?) {
+                if (p0 != null) {
+                    var friendList = p0.friendList
+                    var queryList: MutableList<BmobQuery<MyUser>> = arrayListOf()
+                    friendList.forEach {
+                        var bmobQuery = BmobQuery<MyUser>()
+                        bmobQuery.addWhereEqualTo("objectId", it.subSequence(2, it.length))
+                        queryList.add(bmobQuery)
+                    }
+                    var mainQuery = BmobQuery<MyUser>()
+                    mainQuery.or(queryList)
+                    mainQuery.findObjects(object : FindListener<MyUser>() {
+                        override fun done(p0: MutableList<MyUser>?, p1: BmobException?) {
+                            if (p0 != null) {
+                                callBack?.requestSuccess(p0)
+                            } else {
+                                callBack?.requestFail(p1)
+                            }
+                            callBack?.requestDone()
+                        }
+                    })
+                } else {
+                    callBack?.requestFail(p1)
+                    callBack?.requestDone()
+                }
+            }
+        })
+
     }
 
     //注册帐号到Bmob
@@ -94,7 +144,7 @@ object BmobNetUtils {
                 if (p1 == null) {
                     mListener.createSuccess(p0)
                 } else {
-                    LogUtil.e("bmob:"+p1.message)
+                    LogUtil.e("bmob:" + p1.message)
                     mListener.createFail(p1)
                 }
                 mListener.createDone()

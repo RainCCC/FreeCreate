@@ -22,6 +22,8 @@ abstract class BaseFragment : Fragment(), IBaseView {
 
     var readyVisible: Boolean = false
 
+    protected var isFirstVisible: Boolean = true
+
     var loadDialogUtils: LoadDialogUtils? = null
 
     protected var mContext: Context? = null
@@ -83,8 +85,11 @@ abstract class BaseFragment : Fragment(), IBaseView {
      * 显示出页面的方法
      */
     protected fun onVisible() {
-        //加载数据
-        lazyLoadData()
+        if (isFirstVisible) {
+            isFirstVisible = false
+            //加载数据
+            lazyLoadData()
+        }
     }
 
     protected abstract fun initView()

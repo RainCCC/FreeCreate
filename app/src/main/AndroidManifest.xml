@@ -118,8 +118,7 @@
 
         <activity
             android:name=".moduel.ui.activity.LoginActivity"
-            android:label="@string/title_login"
-            android:launchMode="singleTask">
+            android:label="@string/title_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -129,6 +128,7 @@
         <activity
             android:name=".moduel.ui.activity.HomeActivity"
             android:launchMode="singleTask"
+            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/BaseWhiteTheme" />
         <activity android:name=".moduel.ui.activity.MyActivity" />
     </application>
