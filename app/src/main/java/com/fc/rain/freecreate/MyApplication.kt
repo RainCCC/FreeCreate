@@ -51,7 +51,6 @@ class MyApplication : Application() {
         initRefresh()
         // queryAndLoadNewPatch不可放在attachBaseContext 中，否则无网络权限，建议放在后面任意时刻，如onCreate中
         SophixManager.getInstance().queryAndLoadNewPatch()
-
     }
 
     override fun attachBaseContext(base: Context?) {
