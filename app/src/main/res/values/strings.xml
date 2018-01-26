@@ -62,5 +62,8 @@
     <string name="title_chat">聊天</string>
     <string name="hx_connection_error">连接环信聊天失败，请重新登录</string>
     <string name="title_login">FreeCreate</string>
+    <string name="request_version_fail">获取版本号失败!</string>
+    <string name="hot_update_success">热更新成功!</string>
+    <string name="hot_update_need_restart">热更新需要重启!</string>
 
 </resources>

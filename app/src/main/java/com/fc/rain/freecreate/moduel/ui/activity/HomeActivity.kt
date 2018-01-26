@@ -5,9 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.KeyEvent
+import com.fc.rain.freecreate.MyApplication
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseActivity
 import com.fc.rain.freecreate.moduel.contract.HomeContract
+import com.fc.rain.freecreate.moduel.contract.SuperListener
 import com.fc.rain.freecreate.moduel.model.bean.MyUser
 import com.fc.rain.freecreate.moduel.presenter.HomePresenter
 import com.fc.rain.freecreate.moduel.ui.fragment.HomeFragment
@@ -24,7 +26,14 @@ import kotlinx.android.synthetic.main.activity_home.*
  *
  * Created by Rain on 2017/11/21.
  */
-class HomeActivity : BaseActivity(), HomeContract.IHomeView {
+class HomeActivity : BaseActivity(), HomeContract.IHomeView, SuperListener.HotFixStatusListener {
+    override fun requestResult(mode: Int, code: Int, info: String, handlePatchVersion: Int) {
+        var msg = StringBuilder("").append("Mode:").append(mode)
+                .append(" Code:").append(code)
+                .append(" Info:").append(info)
+                .append(" HandlePatchVersion:").append(handlePatchVersion).toString()
+        toastMessage(msg)
+    }
 
     companion object {
         fun startActivity(context:Context){
@@ -83,6 +92,7 @@ class HomeActivity : BaseActivity(), HomeContract.IHomeView {
         rb_home.setOnClickListener { fragments?.get(0)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
         rb_message.setOnClickListener { fragments?.get(1)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
         rb_my.setOnClickListener { fragments?.get(2)?.let { FragmentUtils.showHideOher(supportFragmentManager, fragments, it) } }
+        MyApplication.instance.setHotFixStatusListener(this)
     }
 
 

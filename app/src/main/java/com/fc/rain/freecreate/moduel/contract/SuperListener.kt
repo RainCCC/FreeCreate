@@ -34,9 +34,14 @@ class SuperListener {
         fun requestFail(bmobError: BmobException?, hxError: HyphenateException?)
         fun requestDone() {}
     }
+
     interface RequestBmobFriendListListener {
         fun requestSuccess(list: MutableList<MyUser>)
         fun requestFail(bmobError: BmobException?)
         fun requestDone() {}
+    }
+
+    interface HotFixStatusListener {
+        fun requestResult(mode: Int, code: Int, info: String, handlePatchVersion: Int)
     }
 }

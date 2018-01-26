@@ -11,5 +11,5 @@ interface IBaseView {
     fun showBaseLoading(){}
     fun hideBaseLoading(){}
     fun hideLoading()
-    fun toastMessage(message: String)
+    fun toastMessage(message: String?)
 }

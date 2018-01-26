@@ -46,8 +46,9 @@
             android:textSize="@dimen/nsp20"
             android:textStyle="bold" />
 
-        <View style="@style/Cut_off_line"
-            android:layout_marginTop="@dimen/npx30"/>
+        <View
+            style="@style/Cut_off_line"
+            android:layout_marginTop="@dimen/npx30" />
 
         <LinearLayout
             android:id="@+id/ll_set"
@@ -81,7 +82,7 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/setting"
                 android:drawablePadding="@dimen/dp_8"
-                android:text="版本号" />
+                android:text="添加朋友" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -91,6 +92,7 @@
         <View style="@style/Cut_off_line" />
 
         <LinearLayout
+            android:id="@+id/ll_version"
             style="@style/ll_edit"
             android:layout_below="@id/tv_name"
             android:gravity="center_vertical"
@@ -101,7 +103,28 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/setting"
                 android:drawablePadding="@dimen/dp_8"
-                android:text="添加朋友" />
+                android:text="版本号" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View style="@style/Cut_off_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_update"
+            style="@style/ll_edit"
+            android:layout_below="@id/tv_name"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tv_1e1e1e_200_16sp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/setting"
+                android:drawablePadding="@dimen/dp_8"
+                android:text="检查更新" />
 
             <ImageView
                 android:layout_width="wrap_content"

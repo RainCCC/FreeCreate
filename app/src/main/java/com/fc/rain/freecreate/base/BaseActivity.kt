@@ -167,7 +167,7 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
 //        hideBaseLoading()
     }
 
-    override fun toastMessage(message: String) {
-        toast(message)
+    override fun toastMessage(message: String?) {
+        message?.let { toast(it) }
     }
 }

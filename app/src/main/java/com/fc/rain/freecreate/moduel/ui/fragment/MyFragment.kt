@@ -2,12 +2,15 @@ package com.fc.rain.freecreate.moduel.ui.fragment
 
 import android.content.Intent
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import cn.bmob.v3.BmobUser
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseFragment
 import com.fc.rain.freecreate.moduel.ui.activity.MyActivity
+import com.fc.rain.freecreate.utils.UiUtils
 import com.qiongliao.qiongliaomerchant.hx.HxNetUtils
+import com.taobao.sophix.SophixManager
 
 /**
  *
@@ -34,6 +37,20 @@ class MyFragment : BaseFragment() {
         findViewById<Button>(R.id.ll_exit)?.setOnClickListener {
             showLoading()
             mContext?.let { it1 -> HxNetUtils.instance.offLineOperation(it1) }
+        }
+        findViewById<LinearLayout>(R.id.ll_version)?.setOnClickListener {
+
+            mContext?.let {
+                try {
+                    toastMessage("Version:" + it.packageManager.getPackageInfo(it.packageName, 0).versionName)
+                } catch (e: Exception) {
+                    toastMessage(UiUtils.getString(R.string.request_version_fail))
+                }
+            }
+
+        }
+        findViewById<LinearLayout>(R.id.ll_update)?.setOnClickListener {
+            SophixManager.getInstance().queryAndLoadNewPatch()
         }
     }
 

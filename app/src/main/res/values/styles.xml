@@ -139,12 +139,12 @@
 
     <style name="tv_submit_17B058">
         <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">@dimen/npx30</item>
-        <item name="android:layout_marginRight">@dimen/npx30</item>
-        <item name="android:layout_marginTop">@dimen/npx13</item>
-        <item name="android:layout_marginBottom">@dimen/npx13</item>
+        <item name="android:layout_marginLeft">@dimen/dp_15</item>
+        <item name="android:layout_marginRight">@dimen/dp_15</item>
+        <item name="android:layout_marginTop">@dimen/dp_6</item>
+        <item name="android:layout_marginBottom">@dimen/dp_6</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/npx88</item>
+        <item name="android:layout_height">@dimen/dp_44</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/nsp17</item>
     </style>
@@ -160,7 +160,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/ll_press_white_selector</item>
-        <item name="android:padding">@dimen/npx30</item>
+        <item name="android:padding">@dimen/dp_15</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:clickable">true</item>
     </style>

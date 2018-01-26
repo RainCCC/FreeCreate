@@ -118,7 +118,7 @@ abstract class BaseFragment : Fragment(), IBaseView {
         return rootView?.findViewById(resId)
     }
 
-    override fun toastMessage(message: String) {
-        toast(message)
+    override fun toastMessage(message: String?) {
+        message?.let { toast(it) }
     }
 }
