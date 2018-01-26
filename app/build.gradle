@@ -11,7 +11,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         // Enabling multidex support.
@@ -58,4 +58,6 @@ dependencies {
     //3.5.5：请务必查看下面注释[1]
     compile 'cn.bmob.android:bmob-sdk:3.5.0'
     implementation project(':easeui')
+
+    compile 'com.aliyun.ams:alicloud-android-hotfix:3.2.0'
 }

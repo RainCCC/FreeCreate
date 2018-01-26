@@ -3,7 +3,6 @@ package com.fc.rain.freecreate
 import android.app.Application
 import android.app.ActivityManager
 import android.content.Context
-import android.support.multidex.MultiDex
 import cn.bmob.v3.Bmob
 import com.fc.rain.freecreate.utils.NotNullSingleValueVar
 import com.hyphenate.hx.HxHelper
@@ -12,6 +11,8 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle
 import com.scwang.smartrefresh.layout.footer.BallPulseFooter
 import com.scwang.smartrefresh.layout.header.BezierRadarHeader
+import com.taobao.sophix.SophixManager
+import com.taobao.sophix.PatchStatus
 
 
 /**
@@ -40,8 +41,10 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        //初始化环信
         instance = this
+        // queryAndLoadNewPatch不可放在attachBaseContext 中，否则无网络权限，建议放在后面任意时刻，如onCreate中
+        SophixManager.getInstance().queryAndLoadNewPatch()
+        //初始化环信
         initHx()
         initHxListener()
         //初始化Bmob
@@ -125,8 +128,24 @@ class MyApplication : Application() {
         return processName
     }
 
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        MultiDex.install(this)
+    /**
+     * 初始化热更新
+     */
+    private fun initSophix() {
+        SophixManager.getInstance().setContext(this)
+                .setAppVersion("")
+                .setAesKey(null)
+                .setEnableDebug(true)
+                .setPatchLoadStatusStub { mode, code, info, handlePatchVersion ->
+                    // 补丁加载回调通知
+                    if (code == PatchStatus.CODE_LOAD_SUCCESS) {
+                        // 表明补丁加载成功
+                    } else if (code == PatchStatus.CODE_LOAD_RELAUNCH) {
+                        // 表明新补丁生效需要重启. 开发者可提示用户或者强制重启;
+                        // 建议: 用户可以监听进入后台事件, 然后调用killProcessSafely自杀，以此加快应用补丁，详见1.3.2.3
+                    } else {
+                        // 其它错误信息, 查看PatchStatus类说明
+                    }
+                }.initialize()
     }
 }
