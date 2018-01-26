@@ -61,7 +61,7 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
             tv_head_title.text = getLable()
         }
         rl_head_back.setOnClickListener { finish() }
-        Glide.with(this).load(R.drawable.cool_loading).into(iv_loading)
+//        Glide.with(this).load(R.drawable.cool_loading).into(iv_loading)
         hideBaseLoading()
     }
 

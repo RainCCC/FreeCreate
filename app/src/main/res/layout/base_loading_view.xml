@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_loading"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/loading_bg_color">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -15,7 +14,8 @@
             android:layout_width="@dimen/dp_250"
             android:layout_height="@dimen/dp_150"
             android:layout_centerInParent="true"
-            android:src="@drawable/cool_loading" />
+            android:src="@drawable/cool_loading"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_loading"
@@ -25,7 +25,7 @@
             android:layout_below="@id/iv_loading"
             android:layout_centerHorizontal="true"
             android:text="@string/loading"
-            android:textColor="@color/white"
-            android:textSize="@dimen/nsp14" />
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/nsp12" />
     </RelativeLayout>
 </RelativeLayout>

@@ -58,7 +58,7 @@
     <string name="friend">好友</string>
     <string name="update_friend_list_fail">更新好友列表失败</string>
     <string name="get_friend_list_fail">获取好友列表失败，请稍后重试 : </string>
-    <string name="loading">拼命加载中...</string>
+    <string name="loading">正在加载中...</string>
     <string name="title_chat">聊天</string>
     <string name="hx_connection_error">连接环信聊天失败，请重新登录</string>
     <string name="title_login">FreeCreate</string>

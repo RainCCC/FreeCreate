@@ -30,7 +30,7 @@ class MyApplication : Application() {
         var instance: MyApplication by NotNullSingleValueVar.DelegatesExt.notNullSingleValue()
 
         //是否开启debug模式
-        val isDebug = true
+        val isDebug = false
         //转场动画的模式
         val OVERRIDE_PENDING_TRANSITION_TRANSLATE_TOPBOTTOM = 1
         val OVERRIDE_PENDING_TRANSITION_TRANSLATE_LEFTRIGHT = 2
