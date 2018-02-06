@@ -65,5 +65,6 @@
     <string name="request_version_fail">获取版本号失败!</string>
     <string name="hot_update_success">热更新成功!</string>
     <string name="hot_update_need_restart">热更新需要重启!</string>
+    <string name="title_keep_accounts">记账</string>
 
 </resources>

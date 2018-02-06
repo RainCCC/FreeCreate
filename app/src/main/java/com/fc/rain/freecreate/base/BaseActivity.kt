@@ -103,6 +103,11 @@ abstract class BaseActivity : AppCompatActivity(), IBaseView {
         rl_loading?.visibility = View.VISIBLE
     }
 
+    override fun showBaseLoading(msg: String) {
+        tv_loading?.text = msg
+        rl_loading?.visibility = View.VISIBLE
+    }
+
     override fun startActivity(intent: Intent?) {
         super.startActivity(intent)
         when (jumpAnimationMode()) {

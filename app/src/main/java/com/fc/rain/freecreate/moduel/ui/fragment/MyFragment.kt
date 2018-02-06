@@ -7,6 +7,7 @@ import android.widget.TextView
 import cn.bmob.v3.BmobUser
 import com.fc.rain.freecreate.R
 import com.fc.rain.freecreate.base.BaseFragment
+import com.fc.rain.freecreate.moduel.ui.activity.KeepAccountsActivity
 import com.fc.rain.freecreate.moduel.ui.activity.MyActivity
 import com.fc.rain.freecreate.utils.UiUtils
 import com.qiongliao.qiongliaomerchant.hx.HxNetUtils
@@ -51,6 +52,9 @@ class MyFragment : BaseFragment() {
         }
         findViewById<LinearLayout>(R.id.ll_update)?.setOnClickListener {
             SophixManager.getInstance().queryAndLoadNewPatch()
+        }
+        findViewById<LinearLayout>(R.id.ll_keep_accounts)?.setOnClickListener {
+            startActivity(Intent(mContext, KeepAccountsActivity::class.java))
         }
     }
 

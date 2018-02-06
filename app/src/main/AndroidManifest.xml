@@ -144,6 +144,8 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/BaseWhiteTheme" />
         <activity android:name=".moduel.ui.activity.MyActivity" />
+        <activity android:name=".moduel.ui.activity.KeepAccountsActivity"
+            android:label="@string/title_keep_accounts"/>
     </application>
 
 </manifest>

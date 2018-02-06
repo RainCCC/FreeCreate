@@ -28,11 +28,11 @@
 
         <com.fc.rain.freecreate.utils.MyCircleImageView
             android:id="@+id/iv_user"
-            android:layout_width="@dimen/dp_90"
-            android:layout_height="@dimen/dp_90"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/dp_15"
-            android:src="@drawable/ic_my" />
+            android:src="@drawable/home" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -125,6 +125,27 @@
                 android:drawableLeft="@drawable/setting"
                 android:drawablePadding="@dimen/dp_8"
                 android:text="检查更新" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View style="@style/Cut_off_line" />
+
+        <LinearLayout
+            android:id="@+id/ll_keep_accounts"
+            style="@style/ll_edit"
+            android:layout_below="@id/tv_name"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/tv_1e1e1e_200_16sp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/setting"
+                android:drawablePadding="@dimen/dp_8"
+                android:text="记账" />
 
             <ImageView
                 android:layout_width="wrap_content"
